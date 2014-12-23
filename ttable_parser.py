@@ -49,8 +49,7 @@ def linkparse(link, cdict):
                 appendDict(cdict, item, activec)
 
 
-    #print(classlist)
-    print(cdict)
+    return cdict
 
 
-linkparse("http://www.artsandscience.utoronto.ca/ofr/timetable/winter/csc.html", {})
+#linkparse("http://www.artsandscience.utoronto.ca/ofr/timetable/winter/csc.html", {})
