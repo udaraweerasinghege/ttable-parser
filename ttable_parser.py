@@ -29,7 +29,7 @@ def linkparse(link, cdict):
     shorten = soup.find_all('tr')[3:]
     classlist = []
     for row in shorten:
-        i = [];
+        i = []
         for cell in row:
             if cell.string != None and cell.string.strip() != '' and cell.string.strip() != '':
                 i.append(cell.string)
@@ -43,7 +43,8 @@ def linkparse(link, cdict):
         for item in list:
             if checkdate(item):
                 appendDict(cdict, item, activec)
+
     return cdict
 
 
-#linkparse("http://www.artsandscience.utoronto.ca/ofr/timetable/winter/csc.html", {})
+#print(linkparse("http://www.artsandscience.utoronto.ca/ofr/timetable/winter/csb.html", {}))

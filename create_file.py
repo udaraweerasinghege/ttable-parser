@@ -21,9 +21,9 @@ for item in course_list:
     except:
         print(item)
 
-print(course_dict)
+
 fname = 'course_times.txt'
-with open(fname, 'a') as f:
+with open(fname, 'w') as f:
     f.write(str(course_dict))
 f.close()
 
