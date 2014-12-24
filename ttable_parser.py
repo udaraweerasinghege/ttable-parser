@@ -26,18 +26,14 @@ def appendDict(cdict, key, item):
 def linkparse(link, cdict):
     response = requests.get(link)
     soup = BeautifulSoup(response.text)
-
     shorten = soup.find_all('tr')[3:]
     classlist = []
-
     for row in shorten:
         i = [];
         for cell in row:
             if cell.string != None and cell.string.strip() != '' and cell.string.strip() != '':
                 i.append(cell.string)
-
         classlist.append(i)
-
     activec = classlist[0][0]
 
     for list in classlist:
@@ -47,8 +43,6 @@ def linkparse(link, cdict):
         for item in list:
             if checkdate(item):
                 appendDict(cdict, item, activec)
-
-
     return cdict
 
 
