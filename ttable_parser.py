@@ -48,8 +48,7 @@ def linkparse(link, cdict):
             if checkdate(item):
                 appendDict(cdict, item, activec)
 
-
     return cdict
 
 
-#linkparse("http://www.artsandscience.utoronto.ca/ofr/timetable/winter/csc.html", {})
+#linkparse("http://www.artsandscience.utoronto.ca/ofr/timetable/winter/csb.html", {})
