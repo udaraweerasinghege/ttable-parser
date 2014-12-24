@@ -1,7 +1,13 @@
 ttable-parser
 =====================================
 
-<strong> UofT Timetable Builder </strong>
+<strong> UofT Courses Search </strong>
 
 
 Allows students to find UofT courses by day and time.
+
+Example:
+
+-> User enters Tuesday 10
+
+-> Program returns a list of all lectures on Tuesday at 10am.
