@@ -3,6 +3,11 @@ __author__ = 'Pavitheran'
 from bs4 import BeautifulSoup
 import requests
 
+def tutorprac(entry):
+    return len(entry) == 5 and entry[0] in 'TP' and entry[1].isdigit()
+
+
+
 def checkcourse(aword):
     return len(aword) == 8 and aword[:3].isalpha() and aword[3:6].isdigit() and aword[6] in 'HY' and aword.endswith('1')
 
@@ -34,15 +39,18 @@ def linkparse(link, cdict):
             if cell.string != None and cell.string.strip() != '' and cell.string.strip() != '':
                 i.append(cell.string)
         classlist.append(i)
+    #print(classlist)
     activec = classlist[0][0]
 
     for list in classlist:
+
         if len(list) > 0 and checkcourse(list[0]):
             activec = list[0]
 
-        for item in list:
-            if checkdate(item):
-                appendDict(cdict, item, activec)
+        if len(list) > 0 and not tutorprac(list[0]):
+            for item in list:
+                if checkdate(item):
+                    appendDict(cdict, item, activec)
 
     return cdict
 
