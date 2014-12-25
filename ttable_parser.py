@@ -45,7 +45,7 @@ def linkparse(link, cdict):
     for list in classlist:
 
         if len(list) > 0 and checkcourse(list[0]):
-            activec = list[0]
+            activec = list[0] + list[1]
 
         if len(list) > 0 and not tutorprac(list[0]):
             for item in list:
