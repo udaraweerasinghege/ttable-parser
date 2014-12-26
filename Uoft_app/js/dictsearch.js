@@ -5,7 +5,8 @@ $(document).ready(function(){
 	.change(function () {
 		var str = "";
 		$( "select option:selected" ).each(function() {
-			str += dictSearch('M','9','F') + " ";
+                        var val = $(this).val();
+			str += dictSearch('M',val,'F') + " ";
 			});
 			$( "span" ).text( str );
 			})
