@@ -1,23 +1,32 @@
 @charset "utf-8";
 /* CSS Document */
 
+.everything {
+	margin-right: 15%;
+}
+
 h4 {
 	text-align:center;
-	margin-right: 8%;
-	margin-bottom: 10%;
+	margin-left: 3.5%;
+	margin-bottom: 5%;
 	font-family: 'Open Sans', sans-serif;
 	font-size:22px;
 	text-shadow: #000;
 	letter-spacing: 2px;
 }
 
+footer {
+	text-align: center;
+	font-size: 9px;
+}
+
 .overall {
-	margin-left: 12%;
+	margin-left: 15%;
 	margin-top: 15%;
 }
 
 #sem {
-	margin-left: 10%;
+	margin-left: 12%;
 }
 
 #stubb {
@@ -28,7 +37,7 @@ h4 {
 	margin-left: 2%;
 }
 #years {
-	margin-left: 30%;
+	margin-left: 36%;
 	margin-top: 2%;
 }
 
@@ -40,7 +49,21 @@ h4 {
 	word-wrap: break-word;
 }
 
+#pred {
+	margin-left: 8%;
+}
 pre {
 	font-size: 15.25px;
 	text-align:center;
+	resize:both;
+}
+.tooltip {
+	display:none;
+	position:absolute;
+	border:1px solid #333;
+	background-color:#161616;
+	border-radius:5px;
+	padding:10px;
+	color:#fff;
+	font-size:12px Arial;
 }
