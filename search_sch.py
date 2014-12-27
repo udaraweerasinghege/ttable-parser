@@ -20,9 +20,9 @@ def search(day, time, sem):
                         resultc.append(course)
     return resultc
 
-#for key in schedule:
-   # print(key)
-#print(search('R', '9', 'Y'))
+
+print(len(search('R', '1', 'S')))
+
 
 
 
