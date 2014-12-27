@@ -7,4 +7,5 @@ Hosted at: www.fillme.org
 
 Allows students to find UofT courses by day and time.
 
-Filtering by year also possible.
+Students also have an option of filtering the courses by year.
+
