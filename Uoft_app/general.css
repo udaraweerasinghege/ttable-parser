@@ -18,11 +18,12 @@ h4 {
 footer {
 	text-align: center;
 	font-size: 9px;
+	margin-top: 1%;
 }
 
 .overall {
 	margin-left: 15%;
-	margin-top: 15%;
+	margin-top: 8%;
 }
 
 #sem {
@@ -55,7 +56,6 @@ footer {
 pre {
 	font-size: 15.25px;
 	text-align:center;
-	resize:both;
 }
 .tooltip {
 	display:none;
@@ -66,4 +66,9 @@ pre {
 	padding:10px;
 	color:#fff;
 	font-size:12px Arial;
+}
+img {
+	height: 10px;
+	width: 10px;
+	margin-left: 49.5%;
 }

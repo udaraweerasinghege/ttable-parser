@@ -16,24 +16,13 @@ $(document).ready(function(){
 			$( "pre#output" ).text( str );
 			})
 			.change();
-			
-	$('.masterTooltip').hover(function(){
-        // Hover over code
-        var title = $(this).attr('title');
-        $(this).data('tipText', title).removeAttr('title');
-        $('<p class="tooltip"></p>')
-        .text(title)
-        .appendTo('body')
-        .fadeIn('slow');
-}, function() {
-        // Hover out code
-        $(this).attr('title', $(this).data('tipText'));
-        $('.tooltip').remove();
-}).mousemove(function(e) {
-        var mousex = e.pageX + 20; //Get X coordinates
-        var mousey = e.pageY + 10; //Get Y coordinates
-        $('.tooltip')
-        .css({ top: mousey, left: mousex })
+	$(function () { 
+    $("img").popover({
+        //title: 'Enter Mobile Number', 
+        content: "Duplicate course listings means multiple sections for queried times.",
+        trigger: 'hover',
+        delay: {show: 0, hide: 0}
+    });  
 });
 });
 
@@ -94,7 +83,20 @@ function filtery(alst, year) {
 	}
 	return newlst;
 }
-
+function fives(lst) {
+	var len = lst.length;
+	var output = [];
+	for (var index = 0; index < len; ++index) {
+		if (index % 5 == 0 && index != 0) {
+			output.push('\n' + lst[index]);
+		}
+		else {
+			output.push(lst[index]);
+		}
+	}
+	return output;
+}
+/*
 function fives(lst) {
 	var i = -1;
 	var output = [];
@@ -120,7 +122,7 @@ function fives(lst) {
 	output.push(currentl);
 	return output;
 }
-
+*/
 function isNumeric(n) {
   return !isNaN(parseFloat(n)) && isFinite(n);
 }
