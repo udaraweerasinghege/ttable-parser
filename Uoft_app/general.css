@@ -1,0 +1,46 @@
+@charset "utf-8";
+/* CSS Document */
+
+h4 {
+	text-align:center;
+	margin-right: 8%;
+	margin-bottom: 10%;
+	font-family: 'Open Sans', sans-serif;
+	font-size:22px;
+	text-shadow: #000;
+	letter-spacing: 2px;
+}
+
+.overall {
+	margin-left: 12%;
+	margin-top: 15%;
+}
+
+#sem {
+	margin-left: 10%;
+}
+
+#stubb {
+	margin-left: 2%;
+}
+
+#tyme {
+	margin-left: 2%;
+}
+#years {
+	margin-left: 30%;
+	margin-top: 2%;
+}
+
+#output {
+	margin-top: 3%;
+	margin-left: 21%;
+	width: 65%;
+	height: 100%;
+	word-wrap: break-word;
+}
+
+pre {
+	font-size: 15.25px;
+	text-align:center;
+}
