@@ -4,7 +4,24 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>UofT Scheduler</title>
 
-<link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="bootstrap.min.css" />
+<link rel="stylesheet" type="text/css" href="general.css" />
+<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+<link rel="icon" href="/favicon.ico" type="image/x-icon">
+<link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-56568924-2', 'auto');
+  ga('require', 'displayfeatures');
+  ga('send', 'pageview');
+
+</script>
+
 </head>
 
 <body>
@@ -12,13 +29,21 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 <script src="js/dictsearch.js"></script>
-<script> 
-	$('body').on('click', '.btn-group button', function (e) {
-    $(this).addClass('active');
-    $(this).siblings().removeClass('active');
-    //do any other button related things
-});
-</script>
+
+
+
+<div class="container">
+ <div class="everything">
+ 
+  <div class="overall">
+<h4> FillMe Schedule </h4>
+
+
+<div class="btn-group" id="sem">
+	<button type="button" class="btn btn-default" value = 'F'>Fall</button>
+    <button type="button" class="btn btn-default" value = 'S'>Winter</button>
+    <button type="button" class="btn btn-default" value = 'Y'>Year Long</button>
+</div>
 
 <div class="btn-group" id ="stubb">
     <button type="button" class="btn btn-default" value = 'M'>Mon</button>
@@ -27,7 +52,7 @@
     <button type="button" class="btn btn-default" value = 'R'>Thurs</button>
     <button type="button" class="btn btn-default" value = 'F'>Fri</button>
 </div>
-<div class="btn-group" role="group">
+<div class="btn-group" id ="tyme" role="group">
     <select class="form-control" role="menu">
       <option> Select Time </option>
       <option value = '8'>8am/pm</option>
@@ -45,7 +70,25 @@
       
     </select>
   </div>
-<span></span>
+</div>
+
+<div class="btn-group" id="years">
+	<button type="button" class="btn btn-default" value = '0'>All</button>
+	<button type="button" class="btn btn-default" value = '1'>First Year</button>
+    <button type="button" class="btn btn-default" value = '2'>Second Year</button>
+    <button type="button" class="btn btn-default" value = '3'>Third Year</button>
+    <button type="button" class="btn btn-default" value = '4'>Fourth Year</button>
+</div>
+
+
+<div id="pred">
+<pre id="output"> </pre>
+</div>
+</div>
+<img src="QuestionMark.png" />
+</div>
+
+<footer> Developed by Pavi and Udara </footer>
 
 
 </body>
