@@ -3,11 +3,11 @@ ttable-parser
 
 <strong> UofT Courses Search </strong>
 
+Hosted at: www.fillme.org
 
-Allows students to find UofT courses by day and time.
+Allows students to find UofT courses by day, time and semester.
 
-Example:
+Can be used to choose electives to fill empty spots in schedules.
 
--> User enters Tuesday 10
+Students also have an option of filtering the courses by year.
 
--> Program returns a list of all lectures on Tuesday at 10am.
