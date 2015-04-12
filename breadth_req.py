@@ -25,6 +25,12 @@ def parse_dict(dict):
                 course_list.append(course)
 
 
+
+
 parse_dict(schedule)
+with open("course_list.txt", 'w') as d:
+    d.write(str(course_list))
+d.close()
+
 print(course_list)
 print(len(course_list))

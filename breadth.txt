@@ -10,7 +10,7 @@
    Not Found
   </h1>
   <p>
-   The requested URL /ofr/calendar/crs_jpa.htm was not found on this server.
+   The requested URL /ofr/calendar/crs_jum.htm was not found on this server.
   </p>
   <hr>
    <address>

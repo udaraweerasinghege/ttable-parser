@@ -22,7 +22,9 @@ def main():
         inject_html(course_link)
         lines = parse_file()
         generate_dict(lines,new_d)
-    print(new_d)
+    with open("breadths_dictionary.txt", 'w') as l:
+        l.write(str(new_d))
+    l.close()
 
 def inject_html(link):
     response = requests.get(link)
@@ -74,7 +76,7 @@ def check_no_dups(L):
     
 
 
-#main()
+main()
 #inject_html("http://www.artsandscience.utoronto.ca/ofr/calendar/crs_eng.htm")
 
     

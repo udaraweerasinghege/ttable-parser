@@ -6,7 +6,7 @@ import requests
 course_dict= {}
 fname = 'course_times.txt'
 
-data= requests.get("http://www.artsandscience.utoronto.ca/ofr/timetable/winter/sponsors.htm")
+data= requests.get("http://www.artsandscience.utoronto.ca/ofr/timetable/winter/")
 soup = BeautifulSoup(data.text)
 course_list = []
 for link in soup.find_all('a'):
