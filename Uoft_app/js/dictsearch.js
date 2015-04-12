@@ -30,7 +30,7 @@ $(document).ready(function(){
 			.change();
 	
 	$(function () { 
-    $("img").popover({
+    $("#tip").popover({
         //title: 'Enter Mobile Number', 
         content: "Duplicate course listings means multiple sections for queried times.",
         trigger: 'hover',
