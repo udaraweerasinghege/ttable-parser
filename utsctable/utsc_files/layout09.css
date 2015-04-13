@@ -1,0 +1,1742 @@
+@charset "UTF-8";
+/* CSS Document
+
+New Template of top lavel pages
+Author: IITS TEAM
+Ver.1 Jan 2009
+
+ */
+/* 
+
+
+	----------------------------------------------------------------
+	
+	------------------------    TOC   ------------------------------
+	
+	----------------------------------------------------------------
+	
+	1. GLOBAL STYLES
+	
+	2. HEADER
+	
+	3. LOGO
+	
+	4. GOOGLE SEARCH BAR
+	
+	5. TITLE AND MARKETING SLOGAN
+	
+	6. CONTENT LAYOUT
+	
+	7. MAIN NAVIGATION
+
+	8. SIDE INFO BOX
+
+	9. FOOTER
+	
+	10.INDEX PAGE SPECIFIC STYLES
+
+	11.TABLE STYLES
+	
+	12.FACULTY & STAFF PAGE SPECIFIC STYLES
+	
+	13. Moving Forward
+	
+	14. media queries
+
+*/
+/* 1. ---------------------------------------------
+---------------------------------------------------
+	
+**********       GLOBAL STYLES		***********
+	
+---------------------------------------------------
+--------------------------------------------------- */
+.centered_container {
+  width: 1000px;
+  text-align: center;
+}
+body {
+  font: 77% Trade Gothic, Arial, sans-serif;
+  color: #000;
+  background: #fff;
+  /* it's good practice to zero the margin and padding of the body element to account for differing browser defaults */
+
+  padding: 0;
+  width: 1000px;
+  text-align: center;
+  margin: 0 auto !important;
+}
+ul,
+ul li,
+ul li a,
+ol li,
+ol li a,
+div,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+dl,
+dd,
+dt {
+  margin: 0;
+  padding: 0;
+}
+/* it's good practice to zero the margin and padding of the body element to account for differing browser defaults */
+ul li,
+ol li,
+dl dt,
+dl dd {
+  font-size: 1em;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Aller", "Trebuchet MS", Arial, Helvetica, sans-serif;
+  color: #002a5c;
+  margin-top: 0.5em;
+}
+.spacedlist li,
+.spacedlist dd {
+  padding-bottom: 1em;
+}
+#bodyContent h2 {
+  font-size: 1.4em;
+  border-bottom: 1px solid #002a5c;
+}
+h3 {
+  font-size: 1.3em;
+}
+h4 {
+  font-size: 1.2em;
+}
+h5,
+h6 {
+  font-size: 1.1em;
+}
+#bodyContent dt {
+  font-weight: bold;
+  margin-top: 0.5em;
+}
+#bodyContent dd {
+  padding-left: 1.2em;
+}
+#bodyContent dd,
+#bodyContent li {
+  margin: 0.2em 0 0 0.5em;
+}
+#bodyContent dd dl dd,
+#bodyContent dd {
+  background: url(../_images09/bullet.gif) left 3px no-repeat;
+}
+#bodyContent .nostyle dd dl dd,
+#innerBox .nostyle ul li {
+  background: none;
+  list-style-image: none;
+  list-style: none;
+}
+#bodyContent dd dl dd,
+#bodyContent dd dl dt {
+  font-size: 1em;
+}
+#bodyContent p,
+#bodyContent ul li,
+#bodyContent ol li {
+  margin-top: .2em;
+  font-size: 1.1em;
+}
+/* typical link style */
+a:link,
+a:visited {
+  text-decoration: underline;
+  color: #002a5c;
+}
+a:hover {
+  text-decoration: none;
+}
+.clearfloat {
+  /* this class should be placed on a div or break element and should be the final element before the close of a container that should fully contain a float */
+
+  clear: both;
+  height: 0;
+  font-size: 1px;
+  line-height: 0px;
+}
+.normal {
+  font-size: 1em;
+  font-style: normal;
+  font-weight: normal;
+}
+.underline {
+  text-decoration: underline;
+}
+.block {
+  display: block;
+}
+.no_space {
+  margin: 0;
+  padding: 0;
+}
+/* header container */
+#UTSC_head {
+  width: 1000px;
+  text-align: center;
+  margin: 0 auto;
+  padding: 0;
+  text-align: left;
+  /* this overrides the text-align: center on the body element. */
+
+  background: none;
+}
+.layout #UTSC_head {
+  width: 100%;
+}
+/* this is for psichology department */
+/* main container */#container,
+.pre-header,
+#global_header,
+#global_footer_social,
+#global_footer {
+  padding: 0;
+  /* the auto margins (in conjunction with a width) center the page */
+
+  text-align: left;
+  /* this overrides the text-align: center on the body element. */
+
+  /*background: #fff url(../_images09/newbg.gif) repeat-y;*/
+
+  position: relative;
+}
+
+
+#container {
+  width: 1000px;
+  text-align: center;
+  /*width: 790px; */
+  text-align: left;
+  margin: 0 auto;
+  background: #fff url(../_images09/newbg.gif) repeat-y;
+}
+/*conditional for when navigation is not there*/
+body.no_nav {
+  background: #fff;
+}
+.no_nav .navtopbar {
+  background: none;
+}
+/* research override*/
+.no_nav #dept_name {
+  margin-left: 0;
+}
+/* research override*/
+.no_nav #container {
+  width: 790px;
+  background: none;
+}
+.bottom_border {
+  border-bottom: 1px solid #002a5c;
+}
+.blueTxt {
+  color: #002a5c;
+}
+#error {
+  color: #577eb9;
+  font-weight: 800;
+}
+.bold {
+  font-weight: bold;
+}
+.small {
+  font-size: 0.9em;
+}
+.grey {
+  background: #cfcfcf;
+}
+.lorange {
+  background: #ffdbb8;
+}
+.lblue {
+  background: #d8e4f2;
+}
+.coopblue {
+  background: #002554 url(http://www.utsc.utoronto.ca/~askcoop/uoftcoop/images/main_contd.png) no-repeat bottom;
+  height: 350px;
+  color: #fff;
+}
+.coopblue a {
+  color: #fff;
+}
+.coopblue dt a {
+  color: #afbed1;
+}
+.purple {
+  background: #dccccc;
+}
+.external {
+  background: url(../_images09/external.gif) no-repeat right top;
+  padding-right: 13px;
+}
+.external2 {
+  background: url(../_images09/external2.gif) no-repeat right top;
+  padding-right: 13px;
+}
+.external3 {
+  background: url(../_images09/external2.gif) no-repeat right top;
+  padding-right: 13px;
+}
+.extrapad {
+  padding-right: .5em;
+}
+.pdf {
+  background: url(../_images09/pdf.gif) no-repeat right top;
+  padding-right: 17px;
+}
+.excel {
+  background: url(../_images09/excel.png) no-repeat right top;
+  padding-right: 17px;
+}
+.ppt {
+  background: url(../_images09/ppt.png) no-repeat right top;
+  padding-right: 17px;
+}
+.word {
+  background: url(../_images09/word.png) no-repeat right top;
+  padding-right: 18px;
+}
+.email {
+  background: url(../_images09/email.gif) no-repeat right 2px;
+  padding-right: 17px;
+}
+.print {
+  background: url(../_images09/print.png) no-repeat right top;
+  height: 15px;
+  padding-right: 20px;
+  width: 15px;
+}
+.print2 {
+  background: url(../_images09/print2.png) no-repeat right top;
+  height: 22px;
+  padding-right: 22px;
+  width: 20px;
+}
+#flashbanner {
+  margin: 15px;
+  margin-right: 0;
+  margin-bottom: 30px;
+}
+.top1em {
+  margin-top: 1em;
+}
+.bottom1em {
+  margin-bottom: 1em;
+}
+.center {
+  text-align: center;
+}
+.italic {
+  font-style: italic;
+}
+.allcaps {
+  text-transform: uppercase;
+}
+.top2em {
+  margin-top: 2em;
+}
+.indent {
+  padding-left: 2em;
+}
+.black {
+  color: #000;
+}
+.displaynone {
+  display: none;
+}
+.negindent {
+  text-indent: -1000em;
+}
+.clearfix:after {
+  visibility: hidden;
+  display: block;
+  font-size: 0;
+  content: " ";
+  clear: both;
+  height: 0;
+}
+.clearfix {
+  display: inline-block;
+}
+/* start commented backslash hack \*/
+* html .clearfix {
+  height: 1%;
+}
+.clearfix {
+  display: block;
+}
+/* close commented backslash hack */
+/* 2. ---------------------------------------------
+---------------------------------------------------
+	
+	top right header navigation in the template
+	
+---------------------------------------------------
+--------------------------------------------------- */#toprightnav {
+  margin-top: 1.5em;
+  margin-bottom: 1.8em;
+  float: right;
+  width: 38em;
+  text-align: right;
+}
+#toprightnav ul li {
+  display: inline;
+  list-style: none;
+  border-right: 1px solid #002a5c;
+  float: right;
+}
+#toprightnav ul li a,
+#utsearch {
+  font-size: 0.85em;
+}
+#toprightnav ul li a {
+  padding: 0 0.6em;
+  text-decoration: underline;
+  color: #002a5c;
+  line-height: 1.2em;
+  display: block;
+}
+#toprightnav ul li a:hover,
+#toprightnav ul li a:focus,
+#toprightnav ul li a:active {
+  text-decoration: none;
+}
+#toprightnav ul li.border0 {
+  border: none;
+}
+#toprightnav ul li.border0 a {
+  padding-right: 0;
+}
+/* skip navigation */
+#skipnav ul li {
+  list-style: none;
+  float: left;
+}
+#skipnav ul li a,
+.skip {
+  position: absolute;
+  display: block;
+  top: 0;
+  left: -9999px;
+}
+#skipnav ul li a:focus,
+#skipnav ul li a:active,
+a.skip:focus,
+a.skip:active {
+  left: 0;
+  width: 16em;
+  color: #fff;
+  background-color: #500;
+  font-weight: 800;
+  padding: .3em;
+  text-align: center;
+}
+/* 5. ---------------------------------------------
+---------------------------------------------------
+	
+*********   department title and slogan	 **********
+	
+---------------------------------------------------
+--------------------------------------------------- */
+#depTitle {
+  font-family: Trade Gothic, Arial, Helvetica, sans-serif;
+  font-size: 1.2em;
+  width: 1000px;
+  float: left;
+  font-weight: 700;
+  text-align: right;
+}
+#slogan {
+  width: 1000px;
+  height: 20px;
+  background: #fbfcfe;
+  float: left;
+  font-size: 0.8em;
+  background: url(../_images09/branding_home.jpg) bottom left no-repeat;
+}
+#slogan span {
+  display: block;
+  margin-top: 4px;
+  text-align: right;
+}
+/* 6.  --------------------------------------------
+---------------------------------------------------
+	  
+      ********  content layout  ***********
+	
+---------------------------------------------------
+--------------------------------------------------- 
+*/
+/* main content container (in the right of the main navigation) */
+#innerBox {
+  padding-bottom: 10px;
+  float: right;
+  width: 789px;
+  padding: 0;
+  margin: 0;
+}
+#innerBox ul {
+  margin-left: 20px;
+}
+#innerBox ul li {
+  list-style: url(../_images09/bullet.gif);
+  margin-bottom: 5px;
+}
+#innerBox a:hover {
+  color: #2667c5;
+}
+/* main body text inside the main container */
+#bodyContent {
+  margin: 1em;
+}
+/* 7. ---------------------------------------------
+---------------------------------------------------
+	
+**********       main navigation		***********
+	
+---------------------------------------------------
+--------------------------------------------------- */
+#nav {
+  padding: 0;
+  margin: 0;
+  width: 205px;
+  float: left;
+  padding-bottom: 30px;
+  overflow: hidden;
+  background: none;
+}
+#nav ul {
+  padding: 5px;
+}
+#nav ul li {
+  padding-left: 10px;
+  list-style: none;
+}
+#nav a {
+  text-decoration: none;
+}
+#nav form {
+  margin: 10px;
+}
+.navigationblck {
+  margin: 0;
+  padding: 0;
+  width: 12em;
+  border: 1px solid #ccc;
+}
+#nav ul li a {
+  display: block;
+  padding: 0.5em 0;
+  width: 14em;
+  /*background:#e6ecf3;*/
+
+}
+/* Overrides the previous rule so that template files don't get their menu affected */
+#nav .glossymenu div.submenu ul li a {
+  padding: 5px 5px 5px 15px;
+}
+#nav ul li a:hover {
+  display: block;
+  margin-left: -15px;
+  padding: 0.5em 1.5em;
+  /*background:#fff;*/
+  font-weight: 700;
+  width: 14em;
+}
+#nav .glossymenu div.submenu ul li a:hover {
+  margin-left: 0;
+}
+#research_main,
+#giving_main {
+  margin-bottom: 2.5em;
+}
+/* 8.  --------------------------------------------
+---------------------------------------------------
+	
+**********       contact box 		***********
+	
+---------------------------------------------------
+--------------------------------------------------- */
+/* right side box - grey or other color */
+#side_info {
+  width: 205px;
+  float: right;
+  display: block;
+}
+#side_info dl {
+  padding: 15px;
+}
+#side_info dl dt,
+#side_info dl dd {
+  display: block;
+  padding-bottom: 1em;
+}
+#side_info dl dt {
+  font-weight: bold;
+}
+#address {
+  display: block;
+  margin-bottom: 1em;
+}
+.corner1 {
+  width: 141px;
+  height: 27px;
+  float: right;
+}
+.corner2 {
+  width: 46px;
+  height: 100px;
+  float: right;
+}
+#greycorner1 {
+  background: url(../_images09/corner1.gif) top right no-repeat;
+}
+#greycorner2 {
+  background: url(../_images09/corner2.gif) top right no-repeat;
+}
+#lbluecorner1 {
+  background: url(../_images09/lbluecorner1.gif) top right no-repeat;
+}
+#lbluecorner2 {
+  background: url(../_images09/lbluecorner2.gif) top right no-repeat;
+}
+#coopbluecorner1 {
+  background: url(../_images09/coopbluecorner1.gif) top right no-repeat;
+}
+#coopbluecorner2 {
+  background: url(../_images09/coopbluecorner2.gif) top right no-repeat;
+}
+#lorangecorner1 {
+  background: url(../_images09/lorangecorner1.gif) top right no-repeat;
+}
+#lorangecorner2 {
+  background: url(../_images09/lorangecorner2.gif) top right no-repeat;
+}
+#purplecorner1 {
+  background: url(../_images09/purplecorner1.gif) top right no-repeat;
+}
+#purplecorner2 {
+  background: url(../_images09/purplecorner2.gif) top right no-repeat;
+}
+* html #side_info,
+* html .corner1,
+* html .corner2 {
+  margin-top: -2px;
+}
+/* IE margin hack */
+/* ------------------------------------------------
+---------------------------------------------------
+	
+  **********  UNIVERSAL DEPARTMENT STYLES  ********
+	
+---------------------------------------------------
+--------------------------------------------------- */
+body .wrap {
+  width: 1000px;
+  text-align: center;
+  position: inherit;
+  padding-left: 20px;
+  /*overflow:hidden;*/
+
+}
+.header_lblue {
+  background: #6CACE4;
+  width: 1000px;
+  text-align: center;
+  margin:0 auto;
+}
+.header_lime {
+  background: #BFB800;
+  width: 1000px;
+  text-align: center;
+  margin:0 auto;
+}
+.header_orange {
+  background: #D38235;
+  width: 1000px;
+  text-align: center;
+  margin:0 auto;
+}
+.header_purple {
+  background: #A192B2;
+  width: 1000px;
+  text-align: center;
+  margin:0 auto;
+}
+#dept_name {
+  float: left;
+  text-align: left;
+  color: #002554;
+  font: 600 17px/1.75em Arial, Helvetica, sans-serif;
+  height: 30px;
+  text-transform: uppercase;
+  width: auto;
+  position: relative;
+  z-index: 99;
+}
+#dept_name a {
+  text-decoration: none;
+  color: #002554;
+  display: block;
+  width: auto;
+  margin-left: 0;
+  font: 600 17px/1.75em Arial, Helvetica, sans-serif;
+}
+#dept_name .slogan {
+  font-size: 0.8em;
+  font-weight: 300;
+  text-transform: capitalize;
+}
+/* 10. --------------------------------------------
+---------------------------------------------------
+	
+****************     index page	  	***************
+	
+---------------------------------------------------
+--------------------------------------------------- */
+.headlines {
+  letter-spacing: .09em;
+  font-size: 1.4em;
+  font-weight: bolder;
+}
+#newsContent {
+  margin-left: 20px;
+  margin-top: -53px;
+}
+#eventsContent,
+#resources {
+  margin-left: 20px;
+  margin-top: -76px;
+}
+#resources {
+  min-height: 75px;
+}
+.news {
+  margin: 5px 0 0 0px;
+  padding: 0;
+  /*float:left;*/
+
+}
+#newsContent,
+#eventsContent {
+  font-size: 1.2em;
+}
+#newsContent td,
+#eventsContent td {
+  padding-bottom: 25px;
+}
+.more {
+  width: 740px;
+  height: 16px;
+  float: right;
+  border-bottom: 1px solid #002a5c;
+  margin-bottom: 1em;
+  font-weight: bold;
+  font-size: 0.8em;
+  text-align: right;
+  background: url(../_images09/more.gif) no-repeat center right;
+}
+.more a {
+  text-decoration: none;
+  padding-right: 10px;
+  display: block;
+  padding-top: 3px;
+  font-weight: 800;
+}
+.more img {
+  float: right;
+}
+#standup {
+  background: url(../_images09/standup.jpg) no-repeat left top;
+  padding-left: 103px;
+  height: 115px;
+}
+/* 11. --------------------------------------------
+---------------------------------------------------
+	
+	*********     table styles  	***********
+	
+---------------------------------------------------
+--------------------------------------------------- */
+.columns2 {
+  width: 100%;
+  margin-top: 1em;
+}
+.left {
+  width: 49%;
+  float: left;
+}
+.right {
+  width: 49%;
+  float: right;
+}
+.border0 tr td {
+  border: 0;
+}
+.border1 tr td {
+  border: 1px solid #ddd;
+}
+table tr td {
+  padding: 5px;
+}
+th {
+  padding-bottom: 1em;
+}
+th h3 {
+  margin-top: 1em;
+}
+.note {
+  font-style: italic;
+  font-size: 0.9em;
+}
+.note span {
+  font-weight: 800;
+}
+/* table for events page and OSE */
+#size1 {
+  width: 710px;
+}
+#size2 {
+  width: 770px;
+}
+.events {
+  background: #fafafa;
+  border: 2px solid #e6ecf3;
+  font-size: 0.9em;
+  margin-bottom: 1em;
+  text-align: left;
+}
+.events caption {
+  color: #002a5c;
+  font-size: 1.2em;
+  font-weight: 700;
+  margin: 1em 0;
+  text-align: left;
+}
+.events thead {
+  background: #DDD;
+  color: #222;
+}
+.events tr td.date {
+  background: #e6ecf3;
+  border-right: 1px solid #002a5c;
+  width: 33%;
+}
+.events tr th,
+table.events tr td {
+  padding: 0.3em 1em;
+}
+.date span {
+  display: block;
+}
+.events ol li {
+  float: left;
+  list-style: none;
+}
+.events ol li a {
+  display: block;
+  float: left;
+  margin: 0;
+  padding: 0 0.5em;
+  text-decoration: none;
+}
+.events ol {
+  padding: 0 0 1em;
+}
+/* 12. --------------------------------------------
+---------------------------------------------------
+	
+	*******  faculty & staff page styles *********
+	
+---------------------------------------------------
+--------------------------------------------------- */
+#col_left {
+  width: 250px;
+  height: auto;
+  margin: 25px 20px 0 0;
+  padding: 0;
+  text-align: right;
+  float: left;
+}
+#col_left a {
+  font-size: 12px;
+  text-decoration: underline;
+  font-weight: bold;
+  color: #062a5e;
+}
+#col_left a:hover {
+  text-decoration: none;
+  color: #062a5e;
+}
+#col_right {
+  width: 456px;
+  height: auto;
+  margin: 25px 0 0 0px;
+  padding: 0;
+  float: left;
+  position: relative;
+}
+#col_right span {
+  font-weight: bold;
+  position: absolute;
+  top: 2px;
+  left: 20px;
+}
+#highlight {
+  width: 436px;
+  background: #fff4ca;
+  border: 3px solid #ffcc00;
+  padding: 5px;
+  margin: 10px 0 0 0;
+}
+#highlight p {
+  font-family: "Gill Sans", Verdana, Arial, sans-serif;
+  font-size: 11px;
+  margin: 0;
+  padding: 0;
+}
+.publicselectblack {
+  border: #ccc 1px solid;
+  font-size: 1.2em;
+  margin: 15px 0 0 10px;
+}
+.publicselectblack option {
+  padding-left: 10px;
+}
+.publicsearchbodystyle {
+  margin-left: 10px;
+  padding: 0;
+}
+option.ocolorB {
+  background: #dcd9c6;
+}
+.col_bottom {
+  width: 650px;
+  height: auto;
+  margin: 0 0 0 50px;
+  padding: 0px;
+  text-align: left;
+}
+.col_bottom p {
+  font-weight: bold;
+  padding: 0;
+  margin: 0;
+  text-align: right;
+}
+.block_left {
+  width: 240px;
+  height: 30px;
+  float: left;
+}
+.block_right {
+  width: 350px;
+  height: 40px;
+  float: left;
+  padding: 0;
+  margin-top: -15px;
+}
+/* annual review 08 style */
+#ahead {
+  background: #ffffff url(../_images09/think-ahead.gif) 5px 5px no-repeat;
+  border: 1px solid #002a5c;
+  padding: 5px;
+  margin: 1em 0 0 1em;
+  width: 168px;
+}
+#ahead a {
+  display: block;
+  width: 170px;
+  height: 15px;
+  padding-top: 65px;
+}
+/*#review08 {background:#fff url(../_images09/review08-full.jpg) bottom left no-repeat; 
+			height:380px;}
+			
+#review08 h3 a {display:block;
+				height:20px;
+				width:290px;}*/
+#review08 h3 {
+  margin-bottom: 1em;
+}
+#valid,
+#valid a {
+  color: #005a9c;
+  font-size: 0.9em;
+}
+#valid {
+  position: absolute;
+  bottom: 1em;
+  left: 1em;
+}
+#valid a {
+  text-decoration: underline;
+}
+/* 13. --------------------------------------------
+---------------------------------------------------
+	
+	*********     moving forward  	***********
+	
+---------------------------------------------------
+--------------------------------------------------- */
+#contitle {
+  float: left;
+  font-size: 1.5em;
+  font-weight: normal;
+  margin: 0;
+  padding: 0.2em;
+  color: #fff;
+}
+#contitle a {
+  display: block;
+  width: 120px;
+  height: 180px;
+  background: url(../moving_forward/images/cont.png) center no-repeat;
+  text-indent: -9999px;
+  border: 5px solid #8e99b1;
+}
+#contitle a:hover {
+  border: 5px solid #002F65;
+}
+#necesaryevil ul li {
+  list-style: none;
+  margin-right: 1em;
+  position: relative;
+}
+#necesaryevil {
+  float: left;
+  margin-top: 1em;
+  font-size: 85%;
+  width: 764px;
+  margin-left: 0;
+}
+#necesaryevil .msg {
+  position: absolute;
+  top: 450px;
+  left: 225px;
+  width: 150px;
+}
+#contentsp li,
+#contentsp ul li {
+  list-style: none;
+  background: none;
+  margin: 0;
+  padding: 0;
+}
+#contentsp li {
+  display: block;
+  float: left;
+  width: 110px;
+}
+#pdf2:hover,
+#pdf5:hover,
+#pdf6:hover,
+#pdf8:hover,
+#pdf10:hover,
+#pdf12:hover,
+#pdf18:hover,
+#pdf50:hover,
+#pdf53:hover,
+#pdf56:hover {
+  background: url(../moving_forward/images/pdf-ico.png) 70px 5px no-repeat;
+}
+#contentsp ul li {
+  display: block;
+  width: 110px;
+  cursor: pointer;
+}
+#contentsp h4 {
+  font-size: 2em;
+  margin: 0;
+  padding: 0;
+  margin-top: .5em;
+  font-family: "Times New Roman", Times, serif;
+}
+#contentsp h5 {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  text-transform: uppercase;
+  font-size: 0.9em;
+}
+#pdf2 h4,
+#pdf5 h4,
+#pdf50 h4,
+#pdf12 h4,
+#subcont1 h4,
+#subcont3 h4,
+#subcont4 h4,
+#subcont5 h4,
+#subcont6 h4,
+#subcont7 h4 {
+  margin-top: 0.2em;
+}
+#subcont1 h5,
+#subcont2 h5,
+#subcont3 h5,
+#subcont4 h5,
+#subcont5 h5,
+#subcont6 h5,
+#subcont7 h5 {
+  margin-bottom: 1em;
+}
+.content h6 {
+  margin-bottom: 0.1em;
+  margin-top: -10px;
+  font-size: 1.2em;
+  color: #fff;
+}
+/* - - - - - - - - - -  COLOR - - - - - - - - - - - */
+#pdf2 {
+  border-top: 10px solid #002F65;
+  color: #002f65;
+}
+#pdf5 {
+  border-top: 10px solid #8A7F74;
+}
+#pdf12,
+#pdf50 {
+  border-top: 10px solid #5F6062;
+}
+#subcont1 {
+  border-top: 10px solid #26BCD7;
+}
+#subcont2 {
+  border-top: 10px solid #C41230;
+}
+#subcont3 {
+  border-top: 10px solid #F47920;
+}
+#subcont4 {
+  border-top: 10px solid #6DB33F;
+}
+#subcont5 {
+  border-top: 10px solid #C2CD23;
+}
+#subcont6 {
+  border-top: 10px solid #007DC3;
+}
+#subcont7 {
+  border-top: 10px solid #E3A03A;
+}
+#contentcol1 ul li,
+#contentcol1 h4,
+#contentcol1 h5 {
+  color: #8A7F74;
+}
+#contentcol2 ul li,
+#contentcol2 h4,
+#contentcol2 h5,
+#contentcol3 ul li,
+#contentcol3 h4,
+#contentcol3 h5 {
+  color: #5F6062;
+}
+#subcont1 h4,
+#subcont1 h5,
+#subcont1 a {
+  color: #26BCD7;
+}
+#subcont2 h4,
+#subcont2 h5,
+#subcont2 a {
+  color: #C41230;
+}
+#subcont3 h4,
+#subcont3 h5,
+#subcont3 a {
+  color: #F47920;
+}
+#subcont4 h4,
+#subcont4 h5,
+#subcont4 a {
+  color: #6DB33F;
+}
+#subcont5 h4,
+#subcont5 h5,
+#subcont5 a {
+  color: #C2CD23;
+}
+#subcont6 h4,
+#subcont6 h5,
+#subcont6 a {
+  color: #007DC3;
+}
+#subcont7 h4,
+#subcont7 h5,
+#subcont7 a {
+  color: #E3A03A;
+}
+#subcont1 h6 {
+  background: #26BCD7;
+}
+#subcont2 h6 {
+  background: #C41230;
+}
+#subcont3 h6 {
+  background: #F47920;
+}
+#subcont4 h6 {
+  background: #6DB33F;
+}
+#subcont5 h6 {
+  background: #C2CD23;
+}
+#subcont6 h6 {
+  background: #007DC3;
+}
+#subcont7 h6 {
+  background: #E3A03A;
+}
+/* - - - - - - - - - - Roll overs - - - - - - - - - - - */
+/*#subcont1 a { display:none;}
+#subcont1:hover a { display:block;}*/
+#subcont1 {
+  display: block;
+}
+.pdfdisp {
+  display: block;
+  width: 110px;
+  height: 180px;
+  text-indent: -9999px;
+}
+#subcont1 .pdfdisp {
+  background: #ffffff url(../moving_forward/images/subcont1.png) no-repeat top center;
+}
+#subcont2 .pdfdisp {
+  background: #ffffff url(../moving_forward/images/subcont2.png) no-repeat top center;
+}
+#subcont3 .pdfdisp {
+  background: #ffffff url(../moving_forward/images/subcont3.png) no-repeat top center;
+}
+#subcont4 .pdfdisp {
+  background: #ffffff url(../moving_forward/images/subcont4.png) no-repeat top center;
+}
+#subcont5 .pdfdisp {
+  background: #ffffff url(../moving_forward/images/subcont5.png) no-repeat top center;
+}
+#subcont6 .pdfdisp {
+  background: #ffffff url(../moving_forward/images/subcont6.png) no-repeat top center;
+}
+#subcont7 .pdfdisp {
+  background: #ffffff url(../moving_forward/images/subcont7.png) no-repeat top center;
+}
+/*#subcont1 .pdfdisp:hover { border:1px solid #26BCD7;}*/
+.content {
+  display: block;
+  margin-bottom: 4em;
+}
+.content ol li a {
+  display: block;
+  margin-left: -40px;
+  padding: 0.1em;
+  font-size: 0.9em;
+  list-style: inside;
+  width: 110px;
+}
+/* help us button/banner */
+#help_us {
+  width: 172px;
+  margin: 10px 0 0 11px;
+}
+#help_us a {
+  display: block;
+  width: 172px;
+  background: #002554 url(../_includes11/branding/utsc_4up.png) no-repeat 10px 10px;
+  font: Arial, Helvetica, sans-serif;
+  color: #e5f0fe;
+  padding: 180px 0 10px 10px;
+  font-size: 1.5em;
+  border: 0;
+}
+#help_us a:hover {
+  background-color: #000;
+}
+/* 
+
+=================================================================
+
+crisis box
+
+=================================================================
+
+
+*/
+.marketing {
+  font-family: "Gill Sans", Verdana, Arial, sans-serif;
+  padding: 1em;
+  margin-bottom: 10px;
+  text-align: center;
+  font-size: 1.2em;
+}
+.marketing h3 {
+  text-transform: uppercase;
+  padding-bottom: .5em;
+  font-weight: bold;
+}
+.marketing h4 {
+  padding-bottom: .5em;
+}
+.marketing p {
+  margin: 0;
+  padding: 0;
+  text-align: left;
+}
+#crisis {
+  border: 1px solid #c03;
+  background: #ffecf2;
+}
+#crisis h3 {
+  color: #c03;
+}
+/* 
+
+=================================================================
+
+homepage Jquery banner
+
+=================================================================
+
+
+*/
+a {
+  outline: none;
+}
+.tabs_holder {
+  margin-left: -40px;
+  *margin-left: 0;
+  /* ie css hack */
+}
+.tabs_holder,
+.tabs_style {
+  font: 0.9em Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  position: relative;
+  height: 35px;
+  width: 770px;
+  margin-left: 0px;
+}
+.tabs_holder ul {
+  list-style: none;
+  z-index: 10;
+  position: absolute;
+  z-index: 100;
+  margin: 9px 0 0 2px;
+  width: 422px;
+}
+.tabs_holder li {
+  float: left;
+  margin: 0 56px 0 0;
+  text-align: left;
+  display: block;
+}
+.tabs_style a,
+.tabs_style a:active,
+.tabs_style a:visited,
+.tabs_style a:hover {
+  text-decoration: none;
+  color: #2b5899;
+  font-size: 14px;
+}
+.tabs_style a:hover {
+  background: #98accc;
+  padding: 8px;
+}
+#tabs_nav {
+  position: relative;
+}
+div#flickr_link a {
+  float: right;
+  text-decoration: none;
+  display: block;
+  font-weight: bold;
+  position: absolute;
+  top: 5px;
+  right: 20px;
+  color: #2b5899;
+  font-size: 14px;
+  padding: 10px;
+  margin: 10px 210px 0 0;
+}
+div#flickr_link a:hover {
+  background: #98accc;
+  padding: 8px;
+}
+#slide {
+  position: absolute;
+  top: 3px;
+  height: 24px;
+  background: #98accc;
+  z-index: 10;
+  padding: 2px;
+}
+#innerBox ul li {
+  list-style: none;
+}
+.tab_container {
+  border: 1px solid #002a5c;
+  overflow: hidden;
+  float: left;
+  width: 770px;
+  background: #fff;
+  margin-top: -15px;
+  display: none;
+}
+.tab_container_new {
+  border: 1px solid #002a5c;
+  overflow: hidden;
+  float: left;
+  width: 770px;
+  background: #fff;
+  margin-top: -15px;
+}
+.tab_content {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.8em;
+}
+/* slide show */
+div#tmpSlideshow {
+  width: 770px;
+  height: 227px;
+  position: relative;
+}
+/*div.tmpSlide {width: 770px; height: 227px; position:absolute;}*/
+div.tmpSlide img {
+  border: none;
+  z-index: 100;
+}
+div#tmpSlideshowControls {
+  position: absolute;
+  bottom: 2px;
+  right: 30px;
+  min-width: 200px;
+  padding: 0;
+}
+div.tmpSlideshowControl {
+  float: left;
+  margin: 0;
+  background: url('../_images09/btn_off.png') no-repeat;
+  width: 18px;
+  height: 18px;
+  color: #7b8ba5;
+  font: 11px Arial, sans-serif;
+  cursor: pointer;
+}
+div.tmpSlideshowControl span {
+  line-height: 18px;
+  padding-left: 5px;
+  display: none;
+}
+div.tmpSlideshowControlOn {
+  background-image: url('../_images09/btn_on.png');
+}
+div.tmpSlideshowControlActive {
+  background-image: url('../_images09/btn_on.png');
+  color: #22477c;
+}
+div.tmpSlide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 770px;
+  height: 227px;
+  display: none;
+}
+.publications {
+  background: #000;
+  color: #fff;
+  width: 100%;
+  height: 227px;
+  position: relative;
+  font-size: 12px;
+}
+.publications img a {
+  border: none;
+}
+.publications a {
+  color: #ffc400;
+  text-decoration: none;
+}
+.publications a:hover {
+  text-decoration: underline;
+}
+.publications .img1 {
+  position: absolute;
+  top: 21px;
+  left: 177px;
+}
+.publications .img2 {
+  position: absolute;
+  top: 77px;
+  left: 309px;
+}
+.publications .img3 {
+  position: absolute;
+  top: 21px;
+  left: 467px;
+}
+.publications .img1 a {
+  border: 4px solid #fff;
+}
+.publications .img1 a:hover {
+  border: 4px solid #ffc400;
+}
+.publications .sect1 {
+  position: absolute;
+  top: 160px;
+  left: 106px;
+  width: 160px;
+}
+.publications .sect2 {
+  position: absolute;
+  top: 32px;
+  left: 310px;
+  width: 150px;
+}
+.publications .sect3 {
+  position: absolute;
+  top: 170px;
+  left: 469px;
+}
+#campusTour a {
+  background: url('../_images09/campus_tour_more.jpg') no-repeat;
+  width: 770px;
+  height: 227px;
+  /*position:relative;*/
+  text-indent: -9999px;
+  display: block;
+}
+.hidden {
+  display: none;
+}
+#prevNext {
+  margin-bottom: -2.5em;
+}
+#prevNext img {
+  position: relative;
+  z-index: 2;
+  cursor: pointer;
+}
+.relative {
+  position: relative;
+}
+#prevNext {
+  background: #000;
+  position: absolute;
+  top: 185px;
+  left: 640px;
+  width: 80px;
+  height: 10px;
+  z-index: 100;
+  padding: 10px;
+  opacity: .7;
+  filter: alpha(opacity=70);
+}
+.floatLeft {
+  float: left;
+}
+.floatRight {
+  float: right;
+}
+/*annual review button*/
+#review11 {
+  margin-left: 1em;
+}
+#review11 object {
+  display: block;
+}
+#review11 a {
+  display: block;
+  margin-top: 20px;
+  right: 1em;
+}
+/* new directory page styles */
+#innerBox #quick_contact {
+  margin: 0;
+  padding: 0;
+  margin-bottom: 20px;
+}
+#innerBox #quick_contact li {
+  width: 63px;
+  height: 63px;
+  margin-right: 20px;
+  display: block;
+  float: left;
+  text-align: center;
+  position: relative;
+  margin-bottom: 60px;
+}
+#dir_dir {
+  background: url(../_includes11/images/directory-icons.png) no-repeat top right;
+}
+#dir_adm {
+  background: url(../_includes11/images/directory-icons.png) no-repeat bottom center;
+}
+#dir_emr {
+  background: url(../_includes11/images/directory-icons.png) no-repeat top left;
+}
+#dir_oth {
+  background: url(../_includes11/images/directory-icons.png) no-repeat bottom left;
+}
+#dir_lis {
+  background: url(../_includes11/images/directory-icons.png) no-repeat bottom right;
+}
+#dir_voi {
+  background: url(../_includes11/images/directory-icons.png) no-repeat top center;
+}
+#innerBox #quick_contact li a {
+  text-decoration: none;
+  text-align: left;
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding-top: 70px;
+  font-size: 85%;
+}
+#ss_formfield {
+  width: 45%;
+  padding: .5em;
+  float: left;
+  margin-right: 2%;
+  margin-top: .7em;
+}
+#ss_formfield,
+#directory,
+.directory2 {
+  border: 1px solid #ddd;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+}
+#ss_formfield legend {
+  color: #D38235;
+  font-size: 110%;
+  text-transform: capitalize;
+}
+#ss_formfield label {
+  font-size: 105%;
+  color: #444;
+  text-transform: capitalize;
+}
+#ss_field,
+#selecteddept {
+  width: 170px;
+  border: 1px solid #CCC;
+  padding: 7px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  background: #ffffff /*url(../_includes11/images/magnifier.png) 5px center no-repeat*/;
+  box-shadow: inset 0px 5px 5px rgba(73, 80, 120, 0.3);
+  -moz-box-shadow: inset 0px 5px 5px rgba(73, 80, 120, 0.3);
+  -webkit-box-shadow: inset 0px 5px 5px rgba(73, 80, 120, 0.3);
+  color: #777;
+  font-style: italic;
+  margin-left: 1em;
+}
+#selecteddept {
+  height: 2.6em;
+}
+#browse_by_role {
+  margin-top: 1em;
+}
+#ss_field:hover {
+  border: 1px solid #aaa;
+}
+#ss_field:focus {
+  color: #002554;
+}
+#ss_btn {
+  text-indent: -99999px;
+  width: 20px;
+  height: 20px;
+  border: none;
+  background: url(../_includes11/images/magnifier2.png) right no-repeat;
+  cursor: pointer;
+}
+#ss_btn:hover {
+  background: url(../_includes11/images/magnifier2-hover.png) right no-repeat;
+}
+#directory,
+.directory2 {
+  margin: 1em 0;
+  width: 100%;
+}
+#directory_body #dir_container {
+  width: 50%;
+  float: right;
+}
+#directory thead tr th,
+.directory2 thead tr th {
+  text-transform: uppercase;
+  background: #577eb9;
+  color: #fff;
+  font-size: 12px;
+  border-bottom: 3px solid #4066a1;
+  text-align: left;
+}
+#directory thead tr th a,
+.directory2 thead tr th a {
+  color: #fff;
+  font-size: 12px;
+}
+#directory thead tr th a:hover,
+.directory2 thead tr th a:hover {
+  color: #fff;
+  text-decoration: underline;
+}
+#directory th,
+#directory td,
+.directory2 th,
+.directory2 td {
+  padding: .5em;
+}
+#directory tbody tr,
+.directory2 tbody tr {
+  background-color: #E6ECF3;
+}
+#directory tbody tr.odd,
+.directory2 tbody tr.odd {
+  background-color: #F3F3F3;
+}
+/*
+*******************************************************
+-------------------------------------------------------
+
+
+------   HEADER AND FOOTER OVERRIDES   --------
+
+
+-------------------------------------------------------
+*******************************************************
+*/
+/*global header overrides*/
+/*new google search overrides */
+#ut_main {
+  margin-top: 0;
+}
+#global_header .external {
+  background: url('../_images09/external2.gif') no-repeat right top;
+  padding-right: 13px;
+}
+body #global_footer ~ small {
+  text-align: left;
+  background: #fff;
+}
+@media all and (max-width: 999px) {
+  body {
+    width: auto;
+  }
+}
+
