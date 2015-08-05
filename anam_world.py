@@ -4,19 +4,24 @@ __author__ = 'Anam'
 from bs4 import BeautifulSoup
 import requests
 
+#simple function, adds key and item to cdict
 def appendDict(cdict, key, item):
     if key in cdict:
         cdict[key].append(item)
     else:
         cdict[key] = [item]
 
+#checks if aword is a course 
 def checkcourse(aword):
     return len(aword) == 8 and aword[:3].isalpha() and aword[3:6].isdigit() and aword[6] in 'HY' and aword.endswith('1')
 
+#checks if entry is a tutorial or practical (to filter these out later)
 def tutorprac(entry):
     return len(entry) == 5 and entry[0] in 'TP' and entry[1].isdigit()
 
+#checks if aword is a valid date (e.g. R5-7, T2-5)
 def checkdate(aword):
+    #to filter tutorials
     if aword.startswith('T') and len(aword) == 5 and '-' not in aword:
         return False
     if len(aword) == 1:
@@ -26,18 +31,26 @@ def checkdate(aword):
             return False
     return True
 
+#this function is currently identical to linkparse() from ttable_parser
 def parse_courses_with_times(link, cdict):
+    #requests (imported) runs http get request 
+    #response has info
     response = requests.get(link)
+    
+    #response.text has html info
     soup = BeautifulSoup(response.text)
+    
+    #gets all table rows after index 2
     shorten = soup.find_all('tr')[2:]
     classlist = []
+    #shorten is iterable bs4 objects of 'tr' objects
     for row in shorten:
         i = []
         for cell in row:
-            for thing in cell:
-                print(cell.string)
+            #append cell data only if not empty
             if cell.string != None and cell.string.strip() != '' and cell.string.strip() != '':
                 i.append(cell.string)
+                print (cell.string)
         classlist.append(i)
     #print(classlist)
     activec = classlist[0][0]
