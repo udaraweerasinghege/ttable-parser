@@ -31,7 +31,7 @@ def appendDict(cdict, key, item):
 def linkparse(link, cdict):
     response = requests.get(link)
     soup = BeautifulSoup(response.text)
-    shorten = soup.find_all('tr')[3:]
+    shorten = soup.find_all('tr')[2:]
     classlist = []
     for row in shorten:
         i = []
@@ -54,5 +54,8 @@ def linkparse(link, cdict):
 
     return cdict
 
-
-#print(linkparse("http://www.artsandscience.utoronto.ca/ofr/timetable/winter/csb.html", {}))
+#
+# something = linkparse("http://www.artsandscience.utoronto.ca/ofr/timetable/winter/csb.html", {})
+# for key in something:
+#     if 'CSB428H1F' in something[key]:
+#         print (key)
