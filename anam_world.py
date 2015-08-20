@@ -21,8 +21,21 @@ def tutorprac(entry):
 
 #checks if aword is a valid date (e.g. R5-7, T2-5)
 def checkdate(aword):
-    #to filter tutorials
-    if aword.startswith('T') and len(aword) == 5 and '-' not in aword:
+    if aword.isalpha() or aword.isdigit() or len(aword)==1:
+        return False
+    if aword[0] == 'T':
+        if '0' in aword:
+            return False
+    for letter in aword:
+            if letter not in 'MWFTR-0123456789:':
+                return False  
+    return True
+    '''
+    if ':30' in aword:
+        return True
+    if aword.isalpha() or aword.isdigit():
+        return False
+    if aword.startswith('T'):
         return False
     if len(aword) == 1:
         return False
@@ -30,9 +43,11 @@ def checkdate(aword):
         if letter not in 'MWFTR-0123456789':
             return False
     return True
+    '''
 
-#this function is currently identical to linkparse() from ttable_parser
-def parse_courses_with_times(link, cdict):
+#this function is modified linkparse() from ttable_parser
+def parse_courses_with_times(link):
+    cdict = {}
     #requests (imported) runs http get request 
     #response has info
     response = requests.get(link)
@@ -50,27 +65,63 @@ def parse_courses_with_times(link, cdict):
             #append cell data only if not empty
             if cell.string != None and cell.string.strip() != '' and cell.string.strip() != '':
                 i.append(cell.string)
-                print (cell.string)
+                #print (cell.string)
         classlist.append(i)
-    #print(classlist)
+    print(classlist)
     activec = classlist[0][0]
+    
+    courselec_dict = {}
+    curr_lec = None
+    curr_course = None
+    
+    for curr_list in classlist:
+        
+        for element in curr_list:
+            #if course, add key to dict
+            print (element)
+            if len(element) > 0 and checkcourse(element):
+                print ("found new course")
+                #join course code and term (consecutive values in list)
+                curr_course = element + curr_list[curr_list.index(element)+1]
+                courselec_dict[curr_course] = {}
+                
+                
+            #if lecture, add key to dict to dict
+            if element[0] == 'L' and len(element) == 5:
+                print ("found lecture")
+                courselec_dict[curr_course][element] = []
+                curr_lec = element
+             
+                
+            #if time, append to key 
+            if checkdate(element):
+                print ("found time")
+                if (curr_course is not None):
+                    courselec_dict[curr_course][curr_lec].append(element)
+                #x.append(element)
+    print (courselec_dict)
+    
+#    for list in classlist:
 
-    for list in classlist:
+#        if len(list) > 0 and checkcourse(list[0]):
+#            activec = list[0] + list[1]
 
-        if len(list) > 0 and checkcourse(list[0]):
-            activec = list[0] + list[1]
-
-        if len(list) > 0 and not tutorprac(list[0]):
-            for item in list:
-                if checkdate(item):
-                    appendDict(cdict, item, activec)
+#        if len(list) > 0 and not tutorprac(list[0]):
+#            for item in list:
+#                if checkdate(item):
+#                    appendDict(cdict, item, activec)
 
     return cdict
 
 
-something = parse_courses_with_times("http://www.artsandscience.utoronto.ca/ofr/timetable/winter/csb.html", {})
+something = parse_courses_with_times("http://www.artsandscience.utoronto.ca/ofr/timetable/winter/csb.html")
 example_dict = {
     'CSC108H1F': {
-        'LEC101': 'R6-9'
-    }
+        'LEC101': 'R6-9',
+        'LEC10501': 'M9-10' },
+    
+    'CSC148H1F': {
+        'LEC101': 'T1-3',
+        'LEC501': 'W11-12'
+        }
 }
