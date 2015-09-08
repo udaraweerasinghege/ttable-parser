@@ -148,6 +148,9 @@ if (!String.prototype.format) {
     });
   };
 }
+
+// day = M T W R F 
+// time = 8-12, 1-8
 function dictSearch(day, time, sem, year, breadth) {
     var resultc = [];
 	for (var slot in schedule) {

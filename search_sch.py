@@ -16,6 +16,7 @@ def search(day, time, sem):
                     break
             hour = starttime[cindex:]
             if hour == time:
+                #checks the semester
                 for course in schedule[slot]:
                     if course[-1] == sem:
                         resultc.append(course)
