@@ -21,8 +21,6 @@ def search(day, time, sem):
                     if course[-1] == sem:
                         resultc.append(course)
     return resultc
-
-
 print(len(search('R', '1', 'S')))
 
 
