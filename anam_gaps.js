@@ -17,28 +17,18 @@ Iterating through a list -> iterating through the indexes
 Iterating through a dict -> iterating through keys
 */
 
-  // Generate an integer Array containing an arithmetic progression. A port of
-  // the native Python `range()` function. See
-  // [the Python documentation](http://docs.python.org/library/functions.html#range).
-function range (start, stop, step) {
-    if (arguments.length <= 1) {
-      stop = start || 0;
-      start = 0;
-    }
-    step = arguments[2] || 1;
+function range (start, stop) {
 
-    var len = Math.max(Math.ceil((stop - start) / step), 0);
-    var idx = 0;
-    var range = new Array(len);
+	var range = [];
 
-    while(idx < len) {
-      range[idx++] = start;
-      start += step;
-    }
-
-    return range;
-  };
-
+	for (x=start; x<=stop; x++) {
+		console.log("x = " + x);
+		console.log("line 50");
+		console.log("range = " + range)
+		range.push(x);
+	}
+	return range;
+}
 function make_schedule_dict (s) {
 	
 	var classes = s.split(',');
@@ -70,12 +60,13 @@ function find_schedule_times (schedule) {
 		var my_section_time = course_info[lectut];
 		console.log("Section Times = " + my_section_time);
 		//works unti this point. need to test again after writing split_time
-		
-		for (time in my_section_time) {
+
+		for (k=0; k<my_section_time.length; k++) {
+			var time = my_section_time[k];
 			console.log("Time = " + time);
 			var hourly_time = split_time(time); // calling another function in document
-			for (x in hourly_time) {
-				schedule[course].push(x);
+			for (l=0; l<hourly_time.length; l++) {
+				schedule[course].push(hourly_time[l]);
 			}
 		}
 		
@@ -139,14 +130,15 @@ function split_time(s){
 };
 
 // MAIN //
-/*
+
 s = make_schedule_dict('MAT223H1F L0201,CSC207H1F L0101,CSC236H1F L0201,PHY100H1F L0101,PHY100H1F T0301,CHM139H1F P0301,CSC209H1S L0101,CSC343H1S L0201,CSC258H1S L0101,CSC263H1S L5101,ENV200H1S L0101,ENV200H1S T0201');
 console.log(s);
 console.log("Back in Main");
 a = find_schedule_times(s);
 console.log(a);
-*/
+
 
 a = 'W6-9';
 b = split_time(a);
 console.log(b);
+console.log(range(5,7));
