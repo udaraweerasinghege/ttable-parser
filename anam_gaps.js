@@ -22,9 +22,6 @@ function range (start, stop) {
 	var range = [];
 
 	for (x=start; x<=stop; x++) {
-		console.log("x = " + x);
-		console.log("line 50");
-		console.log("range = " + range)
 		range.push(x);
 	}
 	return range;
@@ -32,38 +29,25 @@ function range (start, stop) {
 function make_schedule_dict (s) {
 	
 	var classes = s.split(',');
-	//console.log(classes);
 	var schedule = {};
 	for (i=0; i<classes.length; i++) {
 		cl = classes[i];
-		//console.log(cl[0]);
 		schedule[cl] = [];
 	}
 	return schedule;
 };
 
 function find_schedule_times (schedule) {
-	console.log("Schedule Length = " + schedule.length);
 	for (j in schedule) {
-		console.log("j = " + j)
-		console.log("for loop line 16");
 		var course = j;
-		console.log("Course = " + course);
 		var course_code = course.split(' ');
-		console.log("Course Code = " +course_code);
 		var course_name = course_code[0];
-		console.log("Course name = " + course_name);
 		var course_info = time_to_lec[course_name];
-		console.log("Course Info = " + JSON.stringify(course_info));
 		var lectut = course_code[1];
-		console.log("Lecture/Tutorial Code = " + lectut);
 		var my_section_time = course_info[lectut];
-		console.log("Section Times = " + my_section_time);
-		//works unti this point. need to test again after writing split_time
 
 		for (k=0; k<my_section_time.length; k++) {
 			var time = my_section_time[k];
-			console.log("Time = " + time);
 			var hourly_time = split_time(time); // calling another function in document
 			for (l=0; l<hourly_time.length; l++) {
 				schedule[course].push(hourly_time[l]);
@@ -89,7 +73,6 @@ function split_time(s){
 	var return_list = [];
 	s = s.split('(');
 	s = s[0].trim();
-	console.log(s);
 	var index = 0;
 	while (isalpha(s[index])) {
 		index += 1;
@@ -97,8 +80,6 @@ function split_time(s){
 
 	var day = s.substring(0,index);
 	var hour = s.substring(index);
-	console.log("Day = " +day);
-	console.log("Hour = " + hour);
 	
 	if (hour.match('-') == null) {
 		for (x in day) {
@@ -106,7 +87,6 @@ function split_time(s){
 		}
 	}
 
-	//console.log(return_list);
 	
 	else {
 		var hour_split = hour[0];
@@ -132,13 +112,4 @@ function split_time(s){
 // MAIN //
 
 s = make_schedule_dict('MAT223H1F L0201,CSC207H1F L0101,CSC236H1F L0201,PHY100H1F L0101,PHY100H1F T0301,CHM139H1F P0301,CSC209H1S L0101,CSC343H1S L0201,CSC258H1S L0101,CSC263H1S L5101,ENV200H1S L0101,ENV200H1S T0201');
-console.log(s);
-console.log("Back in Main");
 a = find_schedule_times(s);
-console.log(a);
-
-
-a = 'W6-9';
-b = split_time(a);
-console.log(b);
-console.log(range(5,7));
