@@ -59,10 +59,6 @@ def find_schedule_times(schedule):
 
 def split_time(s):
 	'''
-	.
-	.
-	.
-	.
 	# time = ['M10','W10','F10']
 	#or
 	# time = ['W6', 'W7', 'W8']
@@ -98,6 +94,9 @@ def split_time(s):
 	return return_list
 
 def compare_times(schedule):
+	'''
+	# matched_courses = ['SOC101Y1 LEC0101','ANT100Y1 LEC0501']
+	'''
 	matched_courses = []
 	for course in schedule:
 		cl = course.split()
@@ -107,13 +106,7 @@ def compare_times(schedule):
 			matches = search(time[0], time[1:], sem)
 			for x in matches:
 				matched_courses.append(x)
-	'''
-	.
-	.
-	.
-	.
-	# matched_courses = ['SOC101Y1 LEC0101','ANT100Y1 LEC0501']
-	'''
+	
 	return matched_courses
 	
 

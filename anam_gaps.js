@@ -1,4 +1,3 @@
-//require("C:/Program Files/nodejs/node_modules/npm/node_modules/npm-registry-client/test/fixtures/underscore/1.3.3/package/underscore.js");
 time_to_lec = {
 'MAT223H1F': {'L0202': ['W1-3', 'R2'], 'L5301': ['MTR5'], 'T5101': ['T5'], 'L0101': ['T1-3', 'W1'], 'L5401': ['W6-9'], 'L0201': ['T1-3', 'R1'], 'T0201': ['W12'], 'L0301': ['T10-12', 'W2'], 'T0101': ['T12'], 'L5101': ['T6-9'], 'L5201': ['R6-9'], 'T0301': ['R12']},
 'CSC207H1F': {'L0201': ['T2', 'WF12'], 'L5101': ['W5', 'W6-8'], 'L2000': ['T10', 'WF10'], 'L0301': ['F1', 'F2-4'], 'L0101': ['T10', 'WF10']},
@@ -17,15 +16,117 @@ Iterating through a list -> iterating through the indexes
 Iterating through a dict -> iterating through keys
 */
 
+
+/*
+Description: Generate an integer Array containing an arithmetic progression. A port of
+the native Python `range()` function. 
+Input: 2 integer arguments
+Output: Integer array of elements between start and stop
+*/
 function range (start, stop) {
 
 	var range = [];
 
-	for (x=start; x<=stop; x++) {
+	for (x=start; x<stop; x++) {
 		range.push(x);
 	}
 	return range;
 }
+
+/*
+Description: Determine if given string represents a day of the week
+Input: str (with length 1)
+Output: Boolean
+--
+> isday ('A');
+False
+> isday ('M');
+True
+*/
+function isday (s){ 
+
+	var days = 'MTWRFS';
+	return days.match(s);
+};
+
+/*
+Description: Determine if given string represents a day of the week
+Input: str (with length 1)
+Output: Boolean
+--
+> split_time ('MWF10');
+['M10', 'W10', 'F10']
+
+> split_time ('R8');
+['R8']
+
+> split_time ('W6-9');
+['W6', 'W7', 'W8']
+*/
+function split_time(s){
+	
+	var return_list = [];
+	s = s.split('(');
+	s = s[0].trim();
+	var index = 0;
+	while (isday(s[index])) {
+		index += 1;
+	}
+
+	var day = s.substring(0,index);
+	var hour = s.substring(index);
+	
+	if (hour.match('-') == null) {
+		for (x in day) {
+			return_list.push(day[x]+hour);
+		}
+	}
+
+	
+	else {
+		var hour_split = hour[0];
+		var hour_end = hour[hour.length-1];
+		hour_split = parseInt(hour_split);
+		hour_end = parseInt(hour_end);
+		
+		var hourly = '';
+		var hours_sep = range(hour_split, hour_end);
+		for (i in hours_sep) {
+			hourly = hourly + hours_sep[i];
+		}
+		
+		for (x in day) {
+			for (h in hourly){
+				return_list.push(day[x]+hourly[h]);
+			}
+		}
+	}
+	return return_list;
+	
+};
+
+/*
+Description: Take decoded griddy URL and create an empty dictionary with the course & lecture as keys
+Input: string, as decoded from griddy URL
+Output: Dictionary of {'str': []}
+--
+> a = 'MAT223H1F L0201,CSC207H1F L0101,CSC236H1F L0201,PHY100H1F L0101,PHY100H1F T0301,CHM139H1F P0301,CSC209H1S L0101,CSC343H1S L0201,CSC258H1S L0101,CSC263H1S L5101,ENV200H1S L0101,ENV200H1S T0201';
+> make_schedule_dict(a);
+{
+	'MAT223H1F L0201': [],
+	'CSC207H1F L0101': [],
+	'CSC236H1F L0201': [],
+	'PHY100H1F L0101': [],
+	'PHY100H1F T0301': [],
+	'CHM139H1F P0301': [],
+	'CSC209H1S L0101': [],
+	'CSC343H1S L0201': [],
+	'CSC258H1S L0101': [],
+	'CSC263H1S L5101': [],
+	'ENV200H1S L0101': [],
+	'ENV200H1S T0201': []
+}
+*/
 function make_schedule_dict (s) {
 	
 	var classes = s.split(',');
@@ -37,6 +138,41 @@ function make_schedule_dict (s) {
 	return schedule;
 };
 
+/*
+Description: Find hourly intervals of when lectures/tutorials are taking place
+Input: Dictionary of {'str': []}
+Output: Dictionary of {'str': ['str']}
+--
+> a = {
+	'MAT223H1F L0201': [],
+	'CSC207H1F L0101': [],
+	'CSC236H1F L0201': [],
+	'PHY100H1F L0101': [],
+	'PHY100H1F T0301': [],
+	'CHM139H1F P0301': [],
+	'CSC209H1S L0101': [],
+	'CSC343H1S L0201': [],
+	'CSC258H1S L0101': [],
+	'CSC263H1S L5101': [],
+	'ENV200H1S L0101': [],
+	'ENV200H1S T0201': []
+};
+> find_schedule_times(a);
+{
+	'MAT223H1F L0201': ['R1'],
+	'CSC207H1F L0101': ['T10', 'W10', 'F10'],
+	'CSC236H1F L0201': ['M1', 'W1', 'F1'],
+	'PHY100H1F L0101': ['M11', 'W11'],
+	'PHY100H1F T0301': ['M12'],
+	'CHM139H1F P0301': ['W2', 'W3', 'W4'],
+	'CSC209H1S L0101': ['M12', 'W12'],
+	'CSC343H1S L0201': ['M2' 'W2', 'F2'],
+	'CSC258H1S L0101': ['M11', 'W11', 'F11'],
+	'CSC263H1S L5101': ['R8'],
+	'ENV200H1S L0101': ['T11', R11'],
+	'ENV200H1S T0201': ['T12']
+}
+*/
 function find_schedule_times (schedule) {
 	for (j in schedule) {
 		var course = j;
@@ -53,63 +189,31 @@ function find_schedule_times (schedule) {
 				schedule[course].push(hourly_time[l]);
 			}
 		}
-		
 	}
 	return schedule;
 };
 
-function isalpha (s){ 
+//untested function, need to move file to get dictSearch before this is done
+function compare_times(schedule) {
 
-	var days = 'MTWRFS';
-	return days.match(s);
-};
-
-function split_time(s){
-	
-	// time = ['M10','W10','F10']
-	//or
-	// time = ['W6', 'W7', 'W8']
-	
-	var return_list = [];
-	s = s.split('(');
-	s = s[0].trim();
-	var index = 0;
-	while (isalpha(s[index])) {
-		index += 1;
-	}
-
-	var day = s.substring(0,index);
-	var hour = s.substring(index);
-	
-	if (hour.match('-') == null) {
-		for (x in day) {
-			return_list.push(day[x]+hour);
-		}
-	}
-
-	
-	else {
-		var hour_split = hour[0];
-		var hour_end = hour[-1];	
-		hour_split = parseInt(hour_split);
-		hour_end = parseInt(hour_end);
-		
-		var hourly = '';
-		for (i in range(hour_split, hour_end)) {
-			hourly = hourly + str(i);
-		}
-		
-		for (x in day) {
-			for (h in hourly){
-				return_list.push(x+h);
+	var matched_courses = [];
+	for (course in schedule) {
+		var cl = course.split(' ');
+		cl = cl[0];
+		var sem = cl[cl.length-1];
+		for (i in schedule[course]){
+			var time = schedule[course][i];
+			var matches = dictSearch(time[0], substring(time[1]), sem); //dictSearch from dictsearch.js
+			for (x in matches) {
+				matched_courses.push(matches[x]);
 			}
 		}
 	}
-	return return_list;
-	
-};
+
+	return matched_courses;
+}
 
 // MAIN //
-
 s = make_schedule_dict('MAT223H1F L0201,CSC207H1F L0101,CSC236H1F L0201,PHY100H1F L0101,PHY100H1F T0301,CHM139H1F P0301,CSC209H1S L0101,CSC343H1S L0201,CSC258H1S L0101,CSC263H1S L5101,ENV200H1S L0101,ENV200H1S T0201');
 a = find_schedule_times(s);
+

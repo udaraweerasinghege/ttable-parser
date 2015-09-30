@@ -39,6 +39,21 @@ def checkdate(aword):
     return True
     
 #this function is modified linkparse() from ttable_parser
+#creates the whole dictionary of dictionaries
+"""
+example_dict = {
+    'CSC108H1F': {
+        'LEC101': 'R6-9',
+        'LEC10501': 'M9-10' },
+    
+    'CSC148H1F': {
+        'LEC101': 'T1-3',
+        'LEC501': 'W11-12',
+        'T0101': 'F3'
+        }
+}
+
+"""
 def parse_courses_with_times(link, courselec_dict):
     
     #requests (imported) runs http get request 
@@ -58,9 +73,7 @@ def parse_courses_with_times(link, courselec_dict):
             #append cell data only if not empty
             if cell.string != None and cell.string.strip() != '' and cell.string.strip() != '':
                 i.append(cell.string)
-                #print (cell.string)
         classlist.append(i)
-    #print(classlist)
     activec = classlist[0][0]
     
     curr_lec = None
@@ -72,14 +85,12 @@ def parse_courses_with_times(link, courselec_dict):
             
             #if course, add key to dict
             if len(element) > 0 and checkcourse(element):
-                #print ("found new course")
                 #join course code and term (consecutive values in list)
                 curr_course = element + curr_list[curr_list.index(element)+1]
                 courselec_dict[curr_course] = {}
                 
             #if lecture, add key to dict to dict
             if checklec(element):
-                #print ("found lecture")
                 courselec_dict[curr_course][element] = []
                 curr_lec = element
                 
@@ -90,24 +101,11 @@ def parse_courses_with_times(link, courselec_dict):
                 
             #if time, append to key 
             if checkdate(element):
-                #print ("found time")
                 if (curr_course is not None):
                     courselec_dict[curr_course][curr_lec].append(element)
-                #x.append(element)
    
 
     return courselec_dict
 
 
 something = parse_courses_with_times("http://www.artsandscience.utoronto.ca/ofr/timetable/winter/eng.html", {})
-example_dict = {
-    'CSC108H1F': {
-        'LEC101': 'R6-9',
-        'LEC10501': 'M9-10' },
-    
-    'CSC148H1F': {
-        'LEC101': 'T1-3',
-        'LEC501': 'W11-12',
-        'T0101': 'F3'
-        }
-}
