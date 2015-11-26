@@ -226,7 +226,7 @@ function split_time(s){
 	
 	//multiple day single hour class
 	if (hour.match('-') == null) {
-		console.log("BIG IF");
+		//console.log("BIG IF");
 		for (x=0; x<day.length;x++) {
 			return_list.push(day[x]+hour);
 
@@ -235,7 +235,7 @@ function split_time(s){
 
 	
 	else {
-		console.log("BIG ELSE");
+		//console.log("BIG ELSE");
 		var hour_split = hour[0];
 		var hour_end = hour[hour.length-1];
 		hour_split = parseInt(hour_split);
@@ -248,10 +248,10 @@ function split_time(s){
 		}
 
 		for (x=0; x<day.length; x++) {
-			console.log(x);
+			//console.log(x);
 			for (h=0; h<hourly.length; h++) {
-				console.log(h);
-				console.log()
+			//	console.log(h);
+			//	console.log()
 				return_list.push(day[x]+hourly[h]);
 			}
 		}
@@ -337,26 +337,26 @@ function find_schedule_times (sch) {
 	for (p in sch) {
 		schedule[p] = [];
 	}
-	console.log("in METHOD");
-	console.log(schedule);
+	//console.log("in METHOD");
+	//console.log(schedule);
 
 	for (j in schedule) {
 		var course = j;
 		var course_code = course.split(' ');
-		console.log("COURSE CODE = " + course_code);
+		//console.log("COURSE CODE = " + course_code);
 		var course_name = course_code[0];
-		console.log("COURSE NAME = " + course_name);
+		//console.log("COURSE NAME = " + course_name);
 		var course_info = time_to_lec[course_name];
-		console.log("COURSE INFO = " + course_info);
+		//console.log("COURSE INFO = " + course_info);
 		var lectut = course_code[1];
-		console.log("LECTURE/TUTORIAL CODE = " + lectut);
+		//console.log("LECTURE/TUTORIAL CODE = " + lectut);
 		var my_section_time = course_info[lectut];
-		console.log("SECTION TIME = " + my_section_time);
+		//console.log("SECTION TIME = " + my_section_time);
 
 		for (k=0; k<my_section_time.length; k++) {
 
 			var time = my_section_time[k];
-			console.log("TIME = " +time);
+			//console.log("TIME = " +time);
 			var hourly_time = split_time(time); // calling another function in document
 			for (l=0; l<hourly_time.length; l++) {
 				
@@ -367,24 +367,46 @@ function find_schedule_times (sch) {
 	return sch;
 };
 
-//untested function, need to move file to get dictSearch before this is done
-function compare_times(schedule) {
+/**c
+Description: Find all courses that match the given schedule
+Input: dictionary of {str: []} 
+Output: list of ['str']
+--
+> var a = {
+	'CSC207H1F L0101': ['T10', 'W10', 'F10'],
+}
+> find_unavailable_courses(a); 
+{
+[ 'CLA230H1F',
+  'MGR100H1F',
+  'NML350H1F',
+  'SLA210H1F',
+  'BCH425H1F',
+  'CHM441H1F',
+	.
+	.
+	.
+			]
+	
+}
+*/
+function find_unavailable_courses(schedule) {
 
 	var matched_courses = [];
 	for (course in schedule) {
 		var cl = course.split(' ');
 		var course_name = cl[0]; // seperates course name from lecture
 		// last character from course_name indicates semester (F or S)
-		var sem = course_name[cl.length-1]; 
+		var sem = course_name[course_name.length-1]; 
 
 		//iterating through hour slots of course
 		for (i in schedule[course]){
 			var time = schedule[course][i];
 			var hour = time.substring(1);
 			var day = time[0];
-			var matches = dictSearch(day, time, sem); //dictSearch from dictsearch.js. Returns list of courses
+
+			var matches = dictSearch(day, hour, sem); //dictSearch from dictsearch.js. Returns list of courses
 			for (x in matches) {
-				console.log("for loop 3");
 				matched_courses.push(matches[x]);
 			}
 		}
@@ -393,12 +415,31 @@ function compare_times(schedule) {
 	return matched_courses;
 }
 
+function find_available_courses (unavailable) {
+	for course in unavailable {
+		if (unavailable[course] in total_courses) {
+			//need to make a copy of total_courses lol 
+		}
+
+		else {
+			//take it out of temporary course list
+		}
+	}
+
+	//return total course list, which will now only have courses that 
+	// are available for your schedule
+}
+
 // MAIN //
 
-var s = make_schedule_dict('MAT223H1F L0201,CSC207H1F L0101,CSC236H1F L0201,PHY100H1F L0101,PHY100H1F T0301,CHM139H1F P0301,CSC209H1S L0101,CSC343H1S L0201,CSC258H1S L0101,CSC263H1S L5101,ENV200H1S L0101,ENV200H1S T0201');
-console.log(s);
+var s = make_schedule_dict('CSC207H1F L0101');
+//console.log(s);
 var a = find_schedule_times(s);
 console.log(a);
+
+console.log("done making schedule - find unavailable courses now");
+var b = find_unavailable_courses(a);
+console.log(b);
 
 
 
