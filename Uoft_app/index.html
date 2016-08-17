@@ -8,7 +8,7 @@
 
 <link rel="stylesheet" type="text/css" href="bootstrap.min.css" />
 <link rel="stylesheet" type="text/css" href="general.css" />
-<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 <link rel="icon" href="/favicon.ico" type="image/x-icon">
 <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
 
@@ -30,7 +30,9 @@
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-<script src="js/dictsearch.js"></script>
+<!-- <script src="js/dictsearch.js"></script>
+ -->
+ <script src="anam_gaps.js"></script>
 
 
 
@@ -100,6 +102,10 @@
 
 <div id="pred">
 <pre id="output"> </pre>
+</div>
+<div id="griddy-search">
+  Griddy Link: <input id="griddy-link" onchange="getCourses()"> </input>
+  <span id="display-result"> </span>
 </div>
 </div>
 <img id="tip" src="QuestionMark.png" />
