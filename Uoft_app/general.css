@@ -4,6 +4,9 @@
 .everything {
 	text-align: center;
 }
+.container { 
+	width: 750px;
+}
 .titleimage{
 	text-align: center;
     	height: 100px;
@@ -50,7 +53,7 @@ footer {
 }
 
 #tyme {
-	margin-left: 2%;
+	margin-top: 2%;
 }
 
 #years {

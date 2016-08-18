@@ -35,30 +35,57 @@
 <script src="js/dictsearch.js"></script>
 
 
-
 <div class="container">
     
  <div class="everything">
      <img class = "titleimage" src ='fillme.png'/>
-  <div class="overall">
+<div class="overall">
 <h1> FillMe Schedule </h1>
   <h2>UofT Scheduler for 2016-2017.</h2>
   <h3>If multiple courses are listed, it means multiple sections exist for given times.</h3>
-<div class="btn-group" id="sem">
-	<button type="button" class="btn btn-default" value = 'F'>Fall</button>
-    <button type="button" class="btn btn-default" value = 'S'>Winter</button>
-    <button type="button" class="btn btn-default" value = 'Y'>Year Long</button>
+</div> <!-- overall -->
+
+<div class="filters">
+
+<div class="filter row">
+  <div class="btn-group" id="sem">
+    <button type="button" class="btn btn-default" value = 'F'>Fall</button>
+      <button type="button" class="btn btn-default" value = 'S'>Winter</button>
+      <button type="button" class="btn btn-default" value = 'Y'>Year Long</button>
+  </div>
+
+  <div class="btn-group" id ="stubb">
+      <button type="button" class="btn btn-default" value = 'M'>Mon</button>
+      <button type="button" class="btn btn-default" value = 'T'>Tue</button>
+      <button type="button" class="btn btn-default" value = 'W'>Wed</button>
+      <button type="button" class="btn btn-default" value = 'R'>Thurs</button>
+      <button type="button" class="btn btn-default" value = 'F'>Fri</button>
+  </div>
 </div>
 
-<div class="btn-group" id ="stubb">
-    <button type="button" class="btn btn-default" value = 'M'>Mon</button>
-    <button type="button" class="btn btn-default" value = 'T'>Tue</button>
-    <button type="button" class="btn btn-default" value = 'W'>Wed</button>
-    <button type="button" class="btn btn-default" value = 'R'>Thurs</button>
-    <button type="button" class="btn btn-default" value = 'F'>Fri</button>
+<div class="filter row">
+  <div class="btn-group" id="years">
+  	<button type="button" class="btn btn-default" value = '0'>All</button>
+  	<button type="button" class="btn btn-default" value = '1'>First Year</button>
+      <button type="button" class="btn btn-default" value = '2'>Second Year</button>
+      <button type="button" class="btn btn-default" value = '3'>Third Year</button>
+      <button type="button" class="btn btn-default" value = '4'>Fourth Year</button>
+      
+      
+  </div>
+  <div class="btn-group" id ="bcs" role="group">
+  	<select id="breadth" class="form-control" role="menu">
+      	<option value = '0'> Filter by Breadth </option>
+          <option value = '0'> Show All </option>
+      	<option value = '1'>Creative/Cultural(1)</button>
+      	<option value = '2'>Thought/Belief(2)</button>
+      	<option value = '3'>Society/Inst.(3)</button>
+      	<option value = '4'>Living Things(4)</button>
+      	<option value = '5'>Physical/Math(5)</button>
+          </select>
+  </div>
 </div>
-
-
+<div class="filter-row">
 <div class="btn-group" id ="tyme" role="group">
     <select id="time" class="form-control" role="menu">
       <option> Select Time </option>
@@ -74,37 +101,15 @@
       <option value = '5'> 5pm </option>
       <option value = '6'> 6pm </option>
       <option value = '7'> 7pm </option>
-      
     </select>
   </div>
 </div>
-
-<div class="btn-group" id="years">
-	<button type="button" class="btn btn-default" value = '0'>All</button>
-	<button type="button" class="btn btn-default" value = '1'>First Year</button>
-    <button type="button" class="btn btn-default" value = '2'>Second Year</button>
-    <button type="button" class="btn btn-default" value = '3'>Third Year</button>
-    <button type="button" class="btn btn-default" value = '4'>Fourth Year</button>
-    
-    
-</div>
-<div class="btn-group" id ="bcs" role="group">
-	<select id="breadth" class="form-control" role="menu">
-    	<option value = '0'> Filter by Breadth </option>
-        <option value = '0'> Show All </option>
-    	<option value = '1'>Creative/Cultural(1)</button>
-    	<option value = '2'>Thought/Belief(2)</button>
-    	<option value = '3'>Society/Inst.(3)</button>
-    	<option value = '4'>Living Things(4)</button>
-    	<option value = '5'>Physical/Math(5)</button>
-        </select>
-</div>
-
+</div> <!-- filters -->
 <div id="pred">
 <pre id="output"> </pre>
 </div>
-</div>
-</div>
+</div> 
+</div> <!-- container -->
 
 <footer> Developed by Pavi, Udara and Meagan</footer>
 
