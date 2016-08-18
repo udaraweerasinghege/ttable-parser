@@ -391,11 +391,12 @@ function find_available_courses (unavailable_courses) {
 	var available = []
 	for (course in course_list) {
 		if (unavailable_courses.indexOf(course_list[course]) == -1) {
-			console.log("INDEX = " + unavailable_courses.indexOf(course_list[course]));
 			// console.log("checking");
 			available.push(course_list[course]);
 			console.log("available course = " + course_list[course]);
 			// console.log(unavailable_courses[course]);
+		} else {
+			console.log("INDEX = " + unavailable_courses.indexOf(course_list[course]));
 		}
 	}
 	return available;
