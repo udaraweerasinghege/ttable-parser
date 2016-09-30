@@ -1,0 +1,56 @@
+.container {
+	width: 80%;
+	max-width: 1200px;
+	text-align: center;
+}
+
+header {
+	margin-top: 2%;
+}
+
+h1 {
+	font-size: 4rem;
+	margin-top: 1%;
+}
+
+h2 {
+	font-size: 2rem;
+}
+
+h3 {
+	font-style: italic;
+	font-size: 1em;
+	letter-spacing: 1px;
+}
+
+img.titleimage {
+	height: 100px;
+}
+
+.form {
+	margin: 2% 0;
+}
+
+.btn-group {
+	margin: 1% 1%;
+}
+
+#output {
+	width: 60%;
+	margin: 1% auto;
+	columns: 100px;
+	padding: 20px;
+	text-align: center;
+}
+
+pre {
+	font-size: 15.25px;
+	text-align: center;
+}
+
+footer p {
+	font-size: 10px;
+	color: #aaa;
+	font-style: italic;
+	margin-top: 5%;
+}
