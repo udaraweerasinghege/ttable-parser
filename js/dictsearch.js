@@ -12384,9 +12384,23 @@ $('body').on('click', '#years.btn-group button', function (e) {
 });
 
 function make_course_link(course){
-    return '<a href="' + course.link + '" target="_blank">' + course.code + '</a><br>';
+    return '<a href="' + course.link + '" target="_blank">' + course.code + '</a>';
 }
 
+// Convert array into array of arrays with each inner array containing five items.
+function fives(lst) {
+	output = [];
+	for (var i = 0; i<lst.length; i++){
+		var courseLink = lst[i];
+		if (i % 5 == 0 && i != 0) {
+			output.push('\n' + "  " + courseLink);
+		}
+		else {
+			output.push("  " + courseLink);
+		}
+	}
+	return output;
+}
 function dictSearch(day, time, sem, year, breadth) {
     var result = [];
     var myArray = course_list.UTSC_COURSES;
@@ -12411,7 +12425,7 @@ function dictSearch(day, time, sem, year, breadth) {
 	        }
 	    }
 	}
-	return result;
+	return fives(result);
 }
 
 

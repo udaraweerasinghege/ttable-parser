@@ -38,7 +38,7 @@ img.titleimage {
 #output {
 	width: 60%;
 	margin: 1% auto;
-	columns: 100px;
+	/*columns: 100px;*/
 	padding: 20px;
 	text-align: center;
 }
