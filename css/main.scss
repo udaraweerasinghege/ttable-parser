@@ -117,4 +117,26 @@ pre {
     font-style: italic;
 }
 
+.btn-default, .form-control {
+    color: white;
+    background-color: transparent;
+    border-color: white;
+    &:hover {
+        background: white;
+        border: 1px solid white;
+        color: #444;
+        box-shadow: none;
+    }
+}
+
+.btn-default.active {
+    background: white;
+    border: 1px solid white;
+}
+
+.btn.active {
+    box-shadow: none;
+}
+
+
 @import 'media-queries';
