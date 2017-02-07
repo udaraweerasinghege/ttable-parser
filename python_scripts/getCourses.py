@@ -11,19 +11,20 @@ for year in range(1,5):
         breadth = course_data['breadthCategories']
         meeting_sections = []
 
-        for meetings,lecture in course_data['meetings'].items():
-            try:
-                for schedule, session in lecture['schedule'].items():
-                    if (session['meetingDay'] and session['meetingStartTime']):
-                        meeting_sections.append({
-                            'day': session['meetingDay'],
-                            'start': session['meetingStartTime']
-                        })
-            except Exception as e:
-                # some lecture sessions' schedule is set to an empty array for some reason instead of object
-                # way to have a standardized data structure uoft >.<
-                print(e)
-                continue
+        for meetings, lecture in course_data['meetings'].items():
+            if meetings.startswith('LEC'):
+                try:
+                    for schedule, session in lecture['schedule'].items():
+                        if (session['meetingDay'] and session['meetingStartTime']):
+                            meeting_sections.append({
+                                'day': session['meetingDay'],
+                                'start': session['meetingStartTime']
+                            })
+                except Exception as e:
+                    # some lecture sessions' schedule is set to an empty array for some reason instead of object
+                    # way to have a standardized data structure uoft >.<
+                    print(e)
+                    continue
         course_dir.append({
             'code': course_code,
             'link': course_link,
