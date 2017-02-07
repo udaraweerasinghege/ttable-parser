@@ -1,0 +1,85 @@
+@charset "utf-8";
+/* CSS Document */
+
+.everything {
+	margin-right: 15%;
+}
+.titleimage{
+    	height: 40px;
+		width: 40px;
+        margin-left: 56%;
+        margin-top: 4%;
+        margin-bottom: -4%;
+          
+}
+h4 {
+	text-align:center;
+	margin-left: 3.5%;
+	margin-bottom: 5%;
+	font-family: 'Open Sans', sans-serif;
+	font-size:22px;
+	text-shadow: #000;
+	letter-spacing: 2px;
+}
+
+footer {
+	text-align: center;
+	font-size: 9px;
+	margin-top: 1%;
+}
+
+.overall {
+	margin-left: 15%;
+	margin-top: 5%;
+}
+
+#sem {
+	margin-left: 12%;
+}
+
+#stubb {
+	margin-left: 2%;
+}
+
+#tyme {
+	margin-left: 2%;
+}
+#years {
+	margin-left: 36%;
+	margin-top: 2%;
+}
+
+#output {
+	margin-top: 3%;
+	margin-left: 21%;
+	width: 65%;
+	height: 100%;
+	word-wrap: break-word;
+}
+#bcs {
+	margin-top: 2%;
+	margin-left: 49%;
+}
+
+#pred {
+	margin-left: 8%;
+}
+pre {
+	font-size: 15.25px;
+	text-align:center;
+}
+.tooltip {
+	display:none;
+	position:absolute;
+	border:1px solid #333;
+	background-color:#161616;
+	border-radius:5px;
+	padding:10px;
+	color:#fff;
+	font-size:12px Arial;
+}
+img {
+	height: 15px;
+	width: 15px;
+	margin-left: 49.5%;
+}

@@ -38,14 +38,14 @@ img.titleimage {
 #output {
 	width: 60%;
 	margin: 1% auto;
-	/*columns: 100px;*/
+	columns: 100px;
 	padding: 20px;
 	text-align: center;
 }
 
 pre {
 	font-size: 15.25px;
-	text-align:center;
+	text-align: center;
 }
 
 footer p {
@@ -53,6 +53,4 @@ footer p {
 	color: #aaa;
 	font-style: italic;
 	margin-top: 5%;
-}
-.switch-school {
 }
