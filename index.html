@@ -5,9 +5,9 @@
    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
    <meta name="keywords" content="uoft, university of toronto, uoft timetable, griddy, timetable filler, uoft courses, timetable generator, fillme, fillme uoft, uoft filler"  />
    <meta name="description" content="Fill Me: Fill my UofT Schedule"  />
+   <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
    <link rel="stylesheet" type="text/css" href="style.css" />
-   <link rel="stylesheet" type="text/css" href="bootstrap.min.css" />
-   <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+   <link href="https://fonts.googleapis.com/css?family=Roboto+Mono|Open+Sans" rel="stylesheet">
    <title>UofT Scheduler</title>
    <script>
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -19,85 +19,93 @@
       ga('send', 'pageview');
    </script>
 </head>
-
 <body>
-   <div class="container">
-      <header>
-         <div class="titles">
-           <img class="titleimage" src='fillme.png'>
-           <span class="switch-school"><a href="utsc/index.html">Click here for UTSC</a></span>
-         </div>         
-         <h1>FillMe Schedule</h1>
-         <h2>UofT (St. George Campus)  Scheduler for 2016-2017.</h2>
-         <h3>If multiple courses are listed, it means multiple sections exist for given times.</h3>
-      </header>
-      <section class="form">
-         <div class="row1">
-            <div class="btn-group" id="sem">
-               <button type="button" class="btn btn-default" value = 'F'>Fall</button>
-               <button type="button" class="btn btn-default" value = 'S'>Winter</button>
-               <button type="button" class="btn btn-default" value = 'Y'>Year Long</button>
-             </div>
-             <div class="btn-group" id ="stubb">
-                 <button type="button" class="btn btn-default" value = 'M'>Mon</button>
-                 <button type="button" class="btn btn-default" value = 'T'>Tue</button>
-                 <button type="button" class="btn btn-default" value = 'W'>Wed</button>
-                 <button type="button" class="btn btn-default" value = 'R'>Thurs</button>
-                 <button type="button" class="btn btn-default" value = 'F'>Fri</button>
-             </div>
-             <div class="btn-group" id ="tyme" role="group">
-               <select id="time" class="form-control" role="menu">
-                 <option>-- Select Time --</option>
-                 <option value='*'> Any </option>
-                 <option value = '8'>8am/pm</option>
-                 <option value = '9'> 9am</option>
-                 <option value = '10'> 10am</option>
-                 <option value = '11'> 11am </option>
-                 <option value = '12'> 12pm </option>
-                 <option value = '1'> 1pm </option>
-                 <option value = '2'> 2pm </option>
-                 <option value = '3'> 3pm </option>
-                 <option value = '4'> 4pm </option>
-                 <option value = '5'> 5pm </option>
-                 <option value = '6'> 6pm </option>
-                 <option value = '7'> 7pm </option>  
-               </select>
-             </div>
-         </div>
-         <div class="row2">
-           <div class="btn-group" id="years">
-             <button type="button" class="btn btn-default" value = '0'>All</button>
-             <button type="button" class="btn btn-default" value = '1'>First Year</button>
-             <button type="button" class="btn btn-default" value = '2'>Second Year</button>
-             <button type="button" class="btn btn-default" value = '3'>Third Year</button>
-             <button type="button" class="btn btn-default" value = '4'>Fourth Year</button>
-           </div>
-           <div class="btn-group" id ="bcs" role="group">
-             <select id="breadth" class="form-control" role="menu">
-               <option value = '0'>-- Filter by Breadth --</option>
-               <option value = '0'> Show All </option>
-               <option value = '1'>Creative and Cultural Representations (1)</button>
-               <option value = '2'>Thought, Belief and Behaviour (2)</button>
-               <option value = '3'>Society and its Institutions (3)</button>
-               <option value = '4'>Living Things and Their Environment (4)</button>
-               <option value = '5'>The Physical and Mathematical Universes (5)</button>
-              </select>
-           </div>
-         </div>
-      </section>
-      <section class="results">
-         <div id="pred">
-            <pre id="output"></pre>
-         </div>
-      </section>
-   </div>
-      <footer>
-         <div class="container">
-            <p>Developed by Pavi, Udara, Meagan, and Sakeeb</p>
-         </div>
-      </footer>
-   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-   <script src="js/dictsearch.js"></script>
+	<header class="header">
+	</header>
+		<div class="wrapper">
+			<aside class="aside aside-1">
+				<!-- <img class="titleimage" src='fillme.png'> -->
+				<h1>FillMe Schedule</h1>
+				<h2>UTSG Scheduler for 2016-2017.</h2>
+				<a href="utsc/index.html"><h3 class="switch-school italic">Click here for UTSC</h3></a>
+				<hr>
+				<section class="form">
+				   <div class="row row1">
+				      <div class="btn-group" id="sem">
+				         <button type="button" class="btn btn-default" value = 'F'>Fall</button>
+				         <button type="button" class="btn btn-default" value = 'S'>Winter</button>
+				         <button type="button" class="btn btn-default" value = 'Y'>Year Long</button>
+				       </div>
+				   </div>
+				   <div class="row row2">
+				       <div class="btn-group" id ="stubb">
+				           <button type="button" class="btn btn-default" value = 'M'>Mon</button>
+				           <button type="button" class="btn btn-default" value = 'T'>Tue</button>
+				           <button type="button" class="btn btn-default" value = 'W'>Wed</button>
+				           <button type="button" class="btn btn-default" value = 'R'>Thurs</button>
+				           <button type="button" class="btn btn-default" value = 'F'>Fri</button>
+				       </div>
+				   </div>
+				   <div class="row row3">
+				       <div class="btn-group" id ="tyme" role="group">
+				         <select id="time" class="form-control" role="menu">
+				           <option>-- Select Time --</option>
+				           <option value='*'> Any </option>
+				           <option value = '8'>8am/pm</option>
+				           <option value = '9'> 9am</option>
+				           <option value = '10'> 10am</option>
+				           <option value = '11'> 11am </option>
+				           <option value = '12'> 12pm </option>
+				           <option value = '1'> 1pm </option>
+				           <option value = '2'> 2pm </option>
+				           <option value = '3'> 3pm </option>
+				           <option value = '4'> 4pm </option>
+				           <option value = '5'> 5pm </option>
+				           <option value = '6'> 6pm </option>
+				           <option value = '7'> 7pm </option>
+				         </select>
+				       </div>
+				   </div>
+				   <div class="row row4">
+				     <div class="btn-group" id="years">
+				       <button type="button" class="btn btn-default" value = '0'>All</button>
+				       <button type="button" class="btn btn-default" value = '1'>First Year</button>
+				       <button type="button" class="btn btn-default" value = '2'>Second Year</button>
+				       <button type="button" class="btn btn-default" value = '3'>Third Year</button>
+				       <button type="button" class="btn btn-default" value = '4'>Fourth Year</button>
+				     </div>
+				 </div>
+				 <div class="row row5">
+				     <div class="btn-group" id ="bcs" role="group">
+				       <select id="breadth" class="form-control" role="menu">
+				         <option value = '0'>-- Filter by Breadth --</option>
+				         <option value = '0'> Show All </option>
+				         <option value = '1'>Arts, Literature, and Language (1)</button>
+				         <option value = '2'>History, Philosophy, and Cultural Studies (2)</button>
+				         <option value = '3'>Social and Behavioural Sciences (3)</button>
+				         <option value = '4'>Natural Sciences (4)</button>
+				         <option value = '5'>Quantitative Reasoning (5)</button>
+				        </select>
+				     </div>
+				 </div>
+				<footer>
+					<div class="contact">
+						<p class="credits">Developed by Pavi, Udara, and Meagan</p>
+						<a href="mailto:udara.weerasinghege@mail.utoronto.ca" class="email"><p>Send us an email!</p></a>
+					</div>
+			 	</footer>
+				</section>
+			</aside>
+	  		<aside class="aside aside-2">
+	  			<section class="results">
+	  			   <div id="pred">
+	  			      <pre id="output"></pre>
+	  			   </div>
+	  			</section>
+	  		</aside>
+	</div>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+	<script src="js/dictsearch.js"></script>
 </body>
 </html>

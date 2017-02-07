@@ -1,4 +1,4 @@
-// JavaScript Document
+ // JavaScript Document
 var day;
 var str = "";
 var val;
@@ -12312,7 +12312,7 @@ $(document).ready(function(){
 
 	$( "#time" )
 	.change(function () {
-		
+
 		$( "#time option:selected" ).each(function() {
                         val = $(this).val();
 			str = dictSearch(day,val,sem,year,req) ;
@@ -12323,7 +12323,7 @@ $(document).ready(function(){
 
 	$( "#breadth" )
 	.change(function () {
-		
+
 		$( "#breadth option:selected" ).each(function() {
                         req = $(this).val();
 			str = dictSearch(day,val,sem,year,req) ;
@@ -12331,53 +12331,53 @@ $(document).ready(function(){
 			$( "pre#output" ).html( str );
 			})
 			.change();
-	
-	$(function () { 
+
+	$(function () {
     $("#tip").popover({
-        //title: 'Enter Mobile Number', 
+        //title: 'Enter Mobile Number',
         content: "Duplicate course listings means multiple sections for queried times.",
         trigger: 'hover',
         delay: {show: 0, hide: 0}
-    });  
+    });
 });
 });
 
- 
+
 	$('body').on('click', '#stubb.btn-group button', function (e) {
-		
+
 		day = $(this).val();
 		str = dictSearch(day, val, sem, year, req);
 		$("pre#output").html(str);
-		
-	
-	
+
+
+
     $(this).addClass('active');
     $(this).siblings().removeClass('active');
     //do any other button related things
 });
 
 $('body').on('click', '#sem.btn-group button', function (e) {
-		
+
 		sem = $(this).val();
 		str = dictSearch(day, val, sem, year, req);
 		$("pre#output").html(str);
-		
-	
-	
+
+
+
     $(this).addClass('active');
     $(this).siblings().removeClass('active');
-	
+
     //do any other button related things
 });
 
 $('body').on('click', '#years.btn-group button', function (e) {
-		
+
 		year = $(this).val();
 		str = dictSearch(day, val, sem, year, req);
 		$("pre#output").html(str);
-		
-	
-	
+
+
+
     $(this).addClass('active');
     $(this).siblings().removeClass('active');
     //do any other button related things
@@ -12399,6 +12399,9 @@ function fives(lst) {
 			output.push("  " + courseLink);
 		}
 	}
+	if (!output.length) {
+		return 'Nothing to see here 😎 (yet).'
+	}
 	return output;
 }
 function dictSearch(day, time, sem, year, breadth) {
@@ -12414,11 +12417,11 @@ function dictSearch(day, time, sem, year, breadth) {
 			    if (course.breadth_req == breadth_index[breadth] || breadth === '0') {
 			        //Make sure day matches
 				    for(var j = 0; j < course.meeting_sections.length; j++){
-				        if (course.meeting_sections[j].day == day_index[day]){	
+				        if (course.meeting_sections[j].day == day_index[day]){
 						    //Finally, make sure start time matches
 			                if (time == '*' || course.meeting_sections[j].start == time_index[time]){
 							    result.push(make_course_link(course));
-							}					  
+							}
 				        }
 			        }
 		        }
@@ -12427,6 +12430,3 @@ function dictSearch(day, time, sem, year, breadth) {
 	}
 	return fives(result);
 }
-
-
-	
