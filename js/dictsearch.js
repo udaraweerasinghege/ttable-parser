@@ -30482,6 +30482,35 @@ $(document).ready(function(){
         delay: {show: 0, hide: 0}
     });
 });
+
+$('#time').change(function() {
+  if ($('#time').val() === '-- Select Time --') {
+    $(this).css({
+      "background-color": "transparent",
+      "color": "#fff"
+    });
+  } else {
+    $(this).css({
+      "background-color": "#fff",
+      "color": "#444"
+    });
+  }
+})
+
+$('#breadth').change(function() {
+  if ($('#breadth').val() === '-- Filter by Breadth --') {
+    $(this).css({
+      "background-color": "transparent",
+      "color": "#fff"
+    });
+  } else {
+    $(this).css({
+      "background-color": "#fff",
+      "color": "#444"
+    });
+  }
+})
+
 });
 
 

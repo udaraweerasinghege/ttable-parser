@@ -36,11 +36,11 @@ hr {
 }
 
 .results {
-    // margin: 200px 0;
     display: -webkit-flex;
     display: -ms-flex;
     display: flex;
     height: 100vh;
+    justify-content: center;
 }
 
 #pred {
@@ -57,13 +57,20 @@ hr {
 }
 
 .aside-1 {
-  width: 40%;
-  position: relative;
-  background: $blue;
-  color: white;
-  padding: 100px 20px 0px 40px;
-  box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
-  position: relative;
+    width: 40%;
+    position: relative;
+    background: $blue;
+    color: white;
+    padding: 100px 20px 0px 40px;
+    box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
+    position: relative;
+    @media (min-width: 901px) {
+        min-height: 700px;
+    }
+}
+
+#utsc .aside-1 {
+  background: $green;   
 }
 
 .aside-2 {
@@ -76,10 +83,6 @@ hr {
 .row {
     margin: 20px 0;
 }
-
-// img.titleimage {
-//   height: 80px;
-// }
 
 .form {
     margin: 35px 0;
@@ -95,8 +98,16 @@ hr {
     }
 }
 
-.contact, a.email {
+a {
+    color: lighten($blue, 20%);
+}
+
+.contact, .contact a {
     color: lighten($blue, 30%);
+} 
+
+#utsc .contact, #utsc a {
+    color: darken($green, 10%);
 }
 
 footer {
@@ -137,6 +148,5 @@ pre {
 .btn.active {
     box-shadow: none;
 }
-
 
 @import 'media-queries';
