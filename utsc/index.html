@@ -6,8 +6,8 @@
    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
    <meta name="keywords" content="uoft, university of toronto, uoft timetable, griddy, timetable filler, uoft courses, timetable generator, fillme, fillme uoft, uoft filler"  />
    <meta name="description" content="Fill Me: Fill my UofT Schedule"  />
-   <link rel="stylesheet" type="text/css" href="bootstrap.min.css" />
-   <link rel="stylesheet" type="text/css" href="style.css" />
+   <link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css" />
+   <link rel="stylesheet" type="text/css" href="../style.css" />
    <link href="https://fonts.googleapis.com/css?family=Roboto+Mono|Open+Sans" rel="stylesheet">
    <title>UofT Scheduler</title>
    <link rel="icon" type="image/png" href="../fillme.ico">
@@ -21,7 +21,7 @@
       ga('send', 'pageview');
    </script>
 </head>
-<body>
+<body id="utsc">
 	<header class="header">
 	</header>
 		<div class="wrapper">
@@ -80,7 +80,7 @@
 				 <div class="row row5">
 				     <div class="btn-group" id ="bcs" role="group">
 				       <select id="breadth" class="form-control" role="menu">
-				         <option value = '0'>-- Filter by Breadth --</option>
+				         <option>-- Filter by Breadth --</option>
 				         <option value = '0'> Show All </option>
 				         <option value = '1'>Arts, Literature, and Language (1)</button>
 				         <option value = '2'>History, Philosophy, and Cultural Studies (2)</button>
@@ -92,7 +92,7 @@
 				 </div>
 				<footer>
 					<div class="contact">
-						<p class="credits">Developed by Pavi, Udara, Meagan, and Sakeeb</p>
+						<p class="credits">Developed by Pavi, <a href="http://udaraw.com" target="_blank">Udara</a>, <a href="http://meaganpau.com" target="_blank">Meagan</a>, and Sakeeb</p>
 						<a href="mailto:udara.weerasinghege@mail.utoronto.ca" class="email"><p>Send us an email!</p></a>
 					</div>
 			 	</footer>
@@ -108,6 +108,6 @@
 	</div>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-	<script src="js/dictsearch.js"></script>
+	<script src="../js/dictsearch.min.js"></script>
 </body>
 </html>
