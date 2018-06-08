@@ -7,7 +7,7 @@
    <meta name="keywords" content="uoft, university of toronto, uoft timetable, griddy, timetable filler, uoft courses, timetable generator, fillme, fillme uoft, uoft filler"  />
    <meta name="description" content="Fill Me: Fill my UofT Schedule"  />
    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
-   <link rel="stylesheet" type="text/css" href="style.css" />
+   <link rel="stylesheet" type="text/css" href="style.css?v=2" />
    <link href="https://fonts.googleapis.com/css?family=Roboto+Mono|Open+Sans" rel="stylesheet">
    <title>UofT Scheduler</title>
    <link rel="icon" type="image/png" href="fillme.ico">
@@ -35,11 +35,12 @@
 			<aside class="aside aside-1">
 				<!-- <img class="titleimage" src='fillme.png'> -->
 				<h1>FillMe Schedule</h1>
-				<h2>UTSG Scheduler for 2017-2018.</h2>
+				<h2>UTSG Scheduler for 2018-2019.</h2>
 				<!--<a href="http://fillme.org/utsc"><h3 class="switch-school italic">Click here for UTSC</h3></a>-->
 				<hr>
 				<section class="form">
 				   <div class="row row1">
+						 <h3>Semester</h3>
 				      <div class="btn-group" id="sem">
 				         <button type="button" class="btn btn-default" value = 'F'>Fall</button>
 				         <button type="button" class="btn btn-default" value = 'S'>Winter</button>
@@ -47,6 +48,7 @@
 				       </div>
 				   </div>
 				   <div class="row row2">
+						 <h3>Day</h3>
 				       <div class="btn-group" id ="stubb">
 				           <button type="button" class="btn btn-default" value = 'M'>Mon</button>
 				           <button type="button" class="btn btn-default" value = 'T'>Tue</button>
@@ -56,6 +58,7 @@
 				       </div>
 				   </div>
 				   <div class="row row3">
+						 <h3>Time</h3>
 				       <div class="btn-group" id ="tyme" role="group">
 				         <select id="time" class="form-control" role="menu">
 				           <option>-- Select Time --</option>
@@ -76,6 +79,7 @@
 				       </div>
 				   </div>
 				   <div class="row row4">
+						 <h3>Year</h3>
 				     <div class="btn-group" id="years">
 				       <button type="button" class="btn btn-default" value = '0'>All</button>
 				       <button type="button" class="btn btn-default" value = '1'>First Year</button>
@@ -85,10 +89,10 @@
 				     </div>
 				 </div>
 				 <div class="row row5">
+					 <h3>Breadth</h3>
 				     <div class="btn-group" id ="bcs" role="group">
 				       <select id="breadth" class="form-control" role="menu">
-				         <option>-- Filter by Breadth --</option>
-				         <option value = '0'> Show All </option>
+				         <option value="0">-- Show All --</option>
 				         <option value = '1'>Arts, Literature, and Language (1)</button>
 				         <option value = '2'>History, Philosophy, and Cultural Studies (2)</button>
 				         <option value = '3'>Social and Behavioural Sciences (3)</button>
