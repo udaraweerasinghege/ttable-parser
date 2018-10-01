@@ -2,3 +2,6 @@
 .idea
 config.codekit*
 build
+trash
+octoberfest
+.DS_Store1
