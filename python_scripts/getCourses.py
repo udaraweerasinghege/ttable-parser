@@ -1,6 +1,6 @@
 import requests
 course_dir = []
-course_link_tmpl = 'http://calendar.artsci.utoronto.ca/crs_{0}.htm#{1}'
+course_link_tmpl = 'https://fas.calendar.utoronto.ca/course/{0}'
 # get all courses from 1st year to 4th
 for year in range(1,5):
     resp = requests.get('https://timetable.iit.artsci.utoronto.ca/api/20189/courses?org=&code=&section=&studyyear={}&daytime=&weekday=&prof=&breadth=&online=&waitlist=&available=&title='.format(year))
@@ -8,7 +8,7 @@ for year in range(1,5):
 
     for course,course_data in data.items():
         course_code = course_data['code'] + course_data['section']
-        course_link = course_link_tmpl.format(course_code[0:3].lower(), course_code[0:8])
+        course_link = course_link_tmpl.format(course_code[0:8])
         breadth = course_data['breadthCategories']
         meeting_sections = []
 
