@@ -1,6 +1,5 @@
 // JavaScript Document
-import { UTSG_COURSES } from './script';
-
+import { UTSG_COURSES } from './dictsearch';
 var day;
 var str = "";
 var val;
@@ -124,7 +123,7 @@ function make_course_link(course) {
 
 // Convert array into array of arrays with each inner array containing five items.
 function fives(lst) {
-  output = [];
+  const output = [];
   for (var i = 0; i < lst.length; i++) {
     var courseLink = lst[i];
     if (i % 5 == 0 && i != 0) {
@@ -139,11 +138,11 @@ function fives(lst) {
   }
   return output;
 }
+
 function dictSearch(day, time, sem, year, breadth) {
   var result = [];
-  var myArray = UTSG_COURSES;
-  for (var i = 0; i < myArray.length; i++) {
-    course = myArray[i];
+  for (var i = 0; i < UTSG_COURSES.length; i++) {
+    const course = UTSG_COURSES[i];
     //Make sure the semester matches
     if (course.code.slice(-1) == sem) {
       //Make sure the year matches
