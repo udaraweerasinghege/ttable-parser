@@ -1,5 +1,6 @@
 @import 'normalize';
 @import 'variables';
+@import 'media-queries';
 
 body {
   margin: 0;
@@ -64,6 +65,8 @@ hr {
     padding: 80px 20px 0px 40px;
     box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
     position: relative;
+    height: auto;
+    padding-bottom: 80px;
 }
 
 #utsc .aside-1 {
