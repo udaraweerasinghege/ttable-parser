@@ -1,9 +1,9 @@
 version: 2.1
 
 orbs:
-    hello: circleci/hello-build@0.0.7 # uses the circleci/buildpack-deps Docker image
+  yarn: artsy/yarn@1.0.1 # uses the circleci/buildpack-deps Docker image
 
 workflows:
-    "Hello Workflow":
-        jobs:
-          - hello/hello-build
+  "Install":
+    jobs:
+      - yarn/install
