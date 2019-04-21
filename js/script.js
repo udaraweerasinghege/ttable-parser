@@ -1,4 +1,7 @@
 // JavaScript Document
+import '../css/main.scss';
+import '../css/bootstrap.min.css';
+
 import { UTSG_COURSES } from './dictsearch';
 var day;
 var str = "";
