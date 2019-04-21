@@ -4,6 +4,6 @@ orbs:
   yarn: artsy/yarn@1.0.1 # uses the circleci/buildpack-deps Docker image
 
 workflows:
-  "Install":
+  "Install Dependancies":
     jobs:
       - yarn/install
