@@ -6,4 +6,6 @@ orbs:
 workflows:
   "Install Dependancies":
     jobs:
-      - yarn/install
+      install:
+        steps:
+          - yarn/install
